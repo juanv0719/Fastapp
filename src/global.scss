@@ -35,3 +35,86 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+body.dark-theme {
+  background-color: #18191a !important;
+}
+
+body.dark-theme .container {
+  background-color: #232526 !important;
+  box-shadow: 0 4px 32px 0 rgba(255, 68, 68, 0.1),
+    0 1.5px 6px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+body.dark-theme .sidebar {
+  background-color: #232526 !important;
+  box-shadow: 2px 0 16px 0 rgba(255, 68, 68, 0.1) !important;
+}
+
+body.dark-theme .sidebar-header {
+  background: linear-gradient(90deg, #d32f2f 60%, #ff002f 100%) !important;
+}
+
+body.dark-theme .header-content,
+body.dark-theme .header-content i {
+  color: #fff !important;
+}
+
+body.dark-theme .header-content i:hover {
+  color: #ff4444 !important;
+}
+
+body.dark-theme .menu {
+  background-color: #232526 !important;
+}
+
+body.dark-theme .menu a {
+  color: #fff !important;
+  background-color: #232526 !important;
+  border-left: 4px solid transparent !important;
+}
+
+body.dark-theme .menu a i {
+  color: #ff4444 !important;
+}
+
+body.dark-theme .menu a:hover,
+body.dark-theme .menu a:focus {
+  background: #2d2323 !important;
+  color: #ff4444 !important;
+  border-left: 4px solid #ff4444 !important;
+}
+
+body.dark-theme .menu a:hover i,
+body.dark-theme .menu a:focus i {
+  color: #fff !important;
+}
+
+body.dark-theme .top-header {
+  background: linear-gradient(90deg, #f70000 60%, #d32f2f 100%) !important;
+  border-bottom: 2px solid #ff4444 !important;
+}
+
+body.dark-theme .logo {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px #2d2323 !important;
+}
+
+body.dark-theme .menu-icon,
+body.dark-theme .cart-icon {
+  color: #fdfdfd !important;
+}
+
+body.dark-theme .main-content {
+  background-color: #232526 !important;
+}
+
+body.dark-theme .main-content h1 {
+  color: #ff4444 !important;
+}
+
+body.dark-theme .main-content p {
+  color: #fff !important;
+  background: #2d2323 !important;
+  border-left: 4px solid #ff4444 !important;
+}
