@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="register">
+    <h1>Registro</h1>
+    <div class="input-group">
+      <div class="input-icon">
+        <span><ion-icon name="card"></ion-icon></span>
+        <ion-input id="rucReg" type="text" placeholder="RUC"></ion-input>
+      </div>
+      <div id="rucReg-error" class="error-text"></div>
+      <div class="input-icon">
+        <span><ion-icon name="business"></ion-icon></span>
+        <ion-input id="razonReg" type="text" placeholder="Razón social"></ion-input>
+      </div>
+      <div id="razonReg-error" class="error-text"></div>
+      <div class="input-icon">
+        <span><ion-icon name="mail"></ion-icon></span>
+        <ion-input id="emailReg" type="email" placeholder="Correo"></ion-input>
+      </div>
+      <div id="emailReg-error" class="error-text"></div>
+      <div class="input-icon">
+        <span><ion-icon name="call"></ion-icon></span>
+        <ion-input id="telReg" type="tel" placeholder="Número de teléfono"></ion-input>
+      </div>
+      <div id="telReg-error" class="error-text"></div>
+    </div>
+    <ion-button expand="block" id="btnRegister">Enviar solicitud</ion-button>
+    <div class="link" style="margin-top:10px;">
+      ¿Ya tienes cuenta? <a routerLink="/login">Volver al login</a>
+    </div>
+  </div>
+  <div id="modal-exito" class="modal-exito">
+    <div class="modal-exito-content">
+      <div class="checkmark">
+        <svg viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+        </svg>
+      </div>
+      <div class="mensaje-exito">¡Registro exitoso!</div>
+    </div>
+  </div>
+</ion-content>
