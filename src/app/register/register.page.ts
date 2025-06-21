@@ -12,34 +12,38 @@ import { environment } from 'src/environments/environment';
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule
-  ]
+  imports: [CommonModule, FormsModule, IonicModule, RouterModule],
 })
 export class RegisterPage implements OnInit {
-
   private db: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     const app = initializeApp(environment.firebaseConfig);
     this.db = getFirestore(app);
 
-    document.getElementById('btnRegister')?.addEventListener('click', async (e) => {
-      e.preventDefault();
-      this.registerUser();
-    });
+    document
+      .getElementById('btnRegister')
+      ?.addEventListener('click', async (e) => {
+        e.preventDefault();
+        this.registerUser();
+      });
   }
 
   async registerUser() {
-    const ruc = (document.getElementById('rucReg') as HTMLInputElement).value.trim();
-    const razon = (document.getElementById('razonReg') as HTMLInputElement).value.trim();
-    const correo = (document.getElementById('emailReg') as HTMLInputElement).value.trim();
-    const telefono = (document.getElementById('telReg') as HTMLInputElement).value.trim();
+    const ruc = (
+      document.getElementById('rucReg') as HTMLInputElement
+    ).value.trim();
+    const razon = (
+      document.getElementById('razonReg') as HTMLInputElement
+    ).value.trim();
+    const correo = (
+      document.getElementById('emailReg') as HTMLInputElement
+    ).value.trim();
+    const telefono = (
+      document.getElementById('telReg') as HTMLInputElement
+    ).value.trim();
 
     this.clearErrors();
 
@@ -71,7 +75,7 @@ export class RegisterPage implements OnInit {
         RUC: ruc,
         RazonSocial: razon,
         Correo: correo,
-        NumeroTel: telefono
+        NumeroTel: telefono,
       });
       this.mostrarRegistroExitoso();
       this.clearForm();
