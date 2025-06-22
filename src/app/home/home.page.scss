@@ -14,7 +14,7 @@ body {
   position: relative;
   max-width: 430px;
   margin: 0 auto;
-  height: 100vh;
+  height: calc(100vh - var(--ion-safe-area-top, 0px) - var(--ion-safe-area-bottom, 0px));
   background-color: #fff;
   box-shadow: 0 4px 32px 0 rgba(255, 0, 0, 0.07),
     0 1.5px 6px 0 rgba(0, 0, 0, 0.03);
