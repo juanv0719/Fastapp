@@ -69,7 +69,7 @@ ion-button {
 }
 
 .link {
-  font-size: 0.9rem;
+  color: #111 !important;
 }
 
 .link a {
@@ -89,17 +89,41 @@ ion-button {
 }
 
 .modal-exito {
-  display: none;
   position: fixed;
-  z-index: 2000;
-  left: 0;
+  z-index: 9999;
   top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-  justify-content: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
   align-items: center;
-  animation: fadeIn 0.3s;
+  justify-content: center;
+  animation: fadeIn 0.4s;
+}
+
+.modal-exito-content {
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px 28px 22px 28px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 240px;
+}
+
+.icono-bienvenido {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 12px;
+}
+
+.mensaje-exito {
+  color: #388e3c;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 @keyframes fadeIn {
@@ -107,30 +131,6 @@ ion-button {
     opacity: 0;
   }
   to {
-    opacity: 1;
-  }
-}
-
-.modal-exito-content {
-  background: #fff;
-  border-radius: 18px;
-  padding: 32px 28px 24px 28px;
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(255, 68, 68, 0.15);
-  min-width: 220px;
-  animation: popIn 0.4s;
-}
-
-@keyframes popIn {
-  0% {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  80% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
     opacity: 1;
   }
 }
@@ -170,9 +170,15 @@ ion-button {
   }
 }
 
-.mensaje-exito {
-  font-size: 1.2rem;
-  color: #222;
-  font-weight: bold;
-  margin-top: 10px;
+.registro-exitoso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 18px;
+  animation: fadeIn 0.7s;
+}
+
+ion-input,
+input {
+  color: #111 !important;
 }

@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RegisterPage implements OnInit {
   private db: any;
+  registroExitoso = false;
 
   constructor() {}
 
@@ -77,7 +78,8 @@ export class RegisterPage implements OnInit {
         Correo: correo,
         NumeroTel: telefono,
       });
-      this.mostrarRegistroExitoso();
+      this.registroExitoso = true;
+      setTimeout(() => (this.registroExitoso = false), 2500);
       this.clearForm();
     } catch (error: any) {
       alert('Error al registrar: ' + error.message);
@@ -96,25 +98,6 @@ export class RegisterPage implements OnInit {
     document.getElementById('razonReg-error')!.textContent = '';
     document.getElementById('emailReg-error')!.textContent = '';
     document.getElementById('telReg-error')!.textContent = '';
-  }
-
-  private mostrarRegistroExitoso() {
-    const modal = document.getElementById('modal-exito');
-    if (!modal) return;
-    modal.style.display = 'flex';
-    const circle = modal.querySelector('.checkmark-circle');
-    const check = modal.querySelector('.checkmark-check');
-    if (circle && check) {
-      (circle as HTMLElement).style.strokeDashoffset = '166';
-      (check as HTMLElement).style.strokeDashoffset = '48';
-      void (circle as HTMLElement).offsetWidth;
-      void (check as HTMLElement).offsetWidth;
-      (circle as HTMLElement).style.animation = 'strokeCircle 0.6s forwards';
-      (check as HTMLElement).style.animation = 'strokeCheck 0.4s 0.6s forwards';
-    }
-    setTimeout(() => {
-      modal.style.display = 'none';
-    }, 3000);
   }
 
   private clearForm() {
