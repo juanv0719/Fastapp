@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
+  imports: [IonicModule],
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
@@ -16,6 +20,7 @@ export class HomePage implements OnInit {
     // Apply saved theme preference on initialization
     this.isDarkTheme = localStorage.getItem('darkTheme') === 'true';
     this.applyTheme();
+    this.setStatusBar();
   }
 
   openMenu() {
@@ -34,6 +39,15 @@ export class HomePage implements OnInit {
 
   private applyTheme() {
     document.body.classList.toggle('dark-theme', this.isDarkTheme);
+  }
+
+  async setStatusBar() {
+    try {
+      await StatusBar.setStyle({ style: Style.Light }); // Texto oscuro
+      await StatusBar.setBackgroundColor({ color: '#ffffff' }); // Fondo blanco
+    } catch (e) {
+      // Puede fallar en web, ignora el error
+    }
   }
 
   logout() {

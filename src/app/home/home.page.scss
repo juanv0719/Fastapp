@@ -14,21 +14,21 @@ body {
   position: relative;
   max-width: 430px;
   margin: 0 auto;
-  height: calc(100vh - var(--ion-safe-area-top, 0px) - var(--ion-safe-area-bottom, 0px));
+  height: 100%;
   background-color: #fff;
   box-shadow: 0 4px 32px 0 rgba(255, 0, 0, 0.07),
     0 1.5px 6px 0 rgba(0, 0, 0, 0.03);
-  border-radius: 0; /* Elimina los bordes redondeados del contenedor */
+  border-radius: 0;
   overflow: hidden;
 }
 
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: 0;
+  top: env(safe-area-inset-top, 0px);
   left: -100%;
   width: 260px;
-  height: 100vh;
+  height: calc(100vh - env(safe-area-inset-top, 0px));
   background-color: #fff;
   transition: 0.3s;
   z-index: 1000;
@@ -116,11 +116,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 24px;
-  background-color: #ff4444; /* Cambia el degradado por un color sólido */
-  color: white; /* Asegura que los iconos sean blancos */
-  border-bottom: none; /* Elimina la línea inferior */
-  box-shadow: none; /* Elimina la sombra */
-  border-radius: 0; /* Elimina los bordes redondeados */
+  background-color: #ff4444;
+  color: white;
+  border-bottom: none;
+  box-shadow: none;
+  border-radius: 0;
+  /* SOLO aquí el safe-area-top */
+  margin-top: env(safe-area-inset-top, 0px);
 }
 
 .menu-icon {
@@ -146,11 +148,11 @@ body {
 }
 
 .logo {
-  color: white; /* Asegura que el texto sea blanco */
+  color: white;
   font-size: 30px;
   font-weight: 900;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega una sombra para que resalte */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   text-align: center;
   flex: 1;
@@ -159,6 +161,7 @@ body {
 /* Contenido principal */
 .main-content {
   padding: 36px 28px 0 28px;
+  /* NO uses safe-area-top aquí */
 }
 
 .main-content h1 {
@@ -262,6 +265,7 @@ body.dark-theme .menu a:focus i {
 body.dark-theme .top-header {
   background: linear-gradient(90deg, #f70000 60%, #d32f2f 100%);
   border-bottom: 2px solid #ff4444;
+  margin-top: env(safe-area-inset-top, 0px);
 }
 
 body.dark-theme .logo {
