@@ -31,6 +31,12 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     const app = initializeApp(environment.firebaseConfig);
     this.db = getFirestore(app);
+
+    // Oculta el splash después de 2.5 segundos
+    setTimeout(() => {
+      const splash = document.getElementById('splash-intro');
+      if (splash) splash.style.display = 'none';
+    }, 4500);
   }
 
   async onLogin() {

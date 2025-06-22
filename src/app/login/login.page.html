@@ -1,26 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content class="ion-padding">
   <div class="login-container">
     <img src="assets/logo.png" alt="Logo" class="logo" />
+    <h1>Iniciar Sesión</h1>
     <form id="loginForm">
-      <ion-item>
-        <ion-label position="floating">RUC</ion-label>
-        <ion-input type="text" [(ngModel)]="ruc" name="ruc" required></ion-input>
-      </ion-item>
-      <p id="ruc-error" class="error-text"></p>
-
-      <ion-item>
-        <ion-label position="floating">Razón Social</ion-label>
-        <ion-input type="text" [(ngModel)]="razonSocial" name="razonSocial" required></ion-input>
-      </ion-item>
-      <p id="razon-error" class="error-text"></p>
-
-      <ion-button expand="block" (click)="onLogin()">Ingresar</ion-button>
+      <div class="input-group">
+        <div class="input-icon">
+          <i class="fa-solid fa-id-card"></i>
+          <input type="text" [(ngModel)]="ruc" name="ruc" placeholder="Ingrese su RUC" required />
+        </div>
+        <p id="ruc-error" class="error-text"></p>
+        <div class="input-icon">
+          <i class="fa-solid fa-building"></i>
+          <input type="text" [(ngModel)]="razonSocial" name="razonSocial" placeholder="Razón Social" required />
+        </div>
+        <p id="razon-error" class="error-text"></p>
+        <button class="btn" type="button" (click)="onLogin()">Ingresar</button>
+      </div>
+      <div class="link">
+        ¿No tienes una cuenta? <a routerLink="/register">Regístrate</a>
+      </div>
     </form>
   </div>
 
@@ -34,4 +32,11 @@
       <p>Acceso concedido.</p>
     </div>
   </div>
+
+  <div id="splash-intro" class="splash-intro">
+    <img src="assets/Intro.gif" alt="Intro" class="splash-gif" />
+  </div>
 </ion-content>
+
+<!-- Agrega esto en tu index.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
