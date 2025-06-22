@@ -21,9 +21,6 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () =>
       import('./register/register.module').then((m) => m.RegisterPageModule),
-  },  {
-    path: 'filtros',
-    loadChildren: () => import('./filtros/filtros.module').then( m => m.FiltrosPageModule)
   },
 
 ];

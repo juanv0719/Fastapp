@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ export class HomePage implements OnInit {
   isMenuOpen = false;
   isDarkTheme = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     // Apply saved theme preference on initialization
@@ -33,5 +34,11 @@ export class HomePage implements OnInit {
 
   private applyTheme() {
     document.body.classList.toggle('dark-theme', this.isDarkTheme);
+  }
+
+  logout() {
+    // Limpia aquí cualquier dato de sesión si es necesario
+    localStorage.clear(); // o lo que uses para guardar sesión
+    this.router.navigate(['/login']);
   }
 }
