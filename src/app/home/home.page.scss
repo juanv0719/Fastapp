@@ -6,7 +6,7 @@
 
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
 }
 // CONFIGURACION DE LA BARRA DE ESTADO Y HEADER PARA EL CUADRADO BLANCO
 /* Rectángulo blanco arriba */
@@ -15,36 +15,33 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 30px; /* Igual que el header */
-  background: #fdfdfd;
+  height: 25px; /* Igual que el header */
+  background: #ffffff;
   z-index: 2200; // Debe ser mayor que .top-header
 }
 .top-header { 
   position: fixed;
-  top: 30px; /* Debajo de .statusbar-bg */
+  top: 25px; /* Debajo de .statusbar-bg */
   left: 0;
   width: 100vw;
-  height: 46px;
-  background: linear-gradient(90deg, #ff4444 60%, #ff002f 100%);
+  height: 63px;
+  background: linear-gradient(90deg, #ff4444 60%, #ff4444 90%);
   z-index: 2100;
   display: flex;
   align-items: center;
   padding: 0 20px;
   border-bottom: 2px solid #ff4444;
 }
-
-
-
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: 48px; /* Debajo del rectángulo blanco */
+  top: 30px; /* Debajo del rectángulo blanco */
   left: -100%;
   width: 260px;
   height: calc(100vh - 48px);
-  background-color: #fff;
+  background-color: #ffffff;
   transition: 0.3s;
-  z-index: 2100;
+  z-index: 2200; // Ahora es mayor que .top-header
   box-shadow: 2px 0 16px 0 rgba(255, 0, 0, 0.07);
   border-top-right-radius: 18px;
   border-bottom-right-radius: 18px;
@@ -164,7 +161,7 @@ body {
   max-width: 430px;
   margin: 0 auto;
   height: 100%;
-  background-color: #000000; // donde dice bienvenido
+  background-color: #ffffff; // donde dice bienvenido
   box-shadow: 0 4px 32px 0 rgba(255, 0, 0, 0.07),
     0 1.5px 6px 0 rgba(0, 0, 0, 0.03);
   border-radius: 0;
@@ -234,7 +231,7 @@ body.dark-theme .sidebar {
 }
 
 body.dark-theme .sidebar-header {
-  background: linear-gradient(90deg, #d32f2f 60%, #ff002f 100%);
+  background: linear-gradient(90deg, #d32f2f 60%, #f6f6f6 100%);
 }
 
 body.dark-theme .header-content {
@@ -276,8 +273,8 @@ body.dark-theme .menu a:focus i {
 }
 
 body.dark-theme .top-header {
-  background: linear-gradient(90deg, #f70000 60%, #d32f2f 100%);
-  border-bottom: 2px solid #ff4444;
+  background: #ff4444;
+  border-bottom: 2px solid #e30909;
 }
 
 body.dark-theme .logo {
