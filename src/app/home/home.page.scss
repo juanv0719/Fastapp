@@ -8,30 +8,43 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   background-color: #f8f9fa;
 }
-
-/* Contenedor principal */
-.container {
-  position: relative;
-  max-width: 430px;
-  margin: 0 auto;
-  height: 100%;
-  background-color: #fff;
-  box-shadow: 0 4px 32px 0 rgba(255, 0, 0, 0.07),
-    0 1.5px 6px 0 rgba(0, 0, 0, 0.03);
-  border-radius: 0;
-  overflow: hidden;
+// CONFIGURACION DE LA BARRA DE ESTADO Y HEADER PARA EL CUADRADO BLANCO
+/* Rectángulo blanco arriba */
+.statusbar-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 30px; /* Igual que el header */
+  background: #fdfdfd;
+  z-index: 2200; // Debe ser mayor que .top-header
 }
+.top-header { 
+  position: fixed;
+  top: 30px; /* Debajo de .statusbar-bg */
+  left: 0;
+  width: 100vw;
+  height: 46px;
+  background: linear-gradient(90deg, #ff4444 60%, #ff002f 100%);
+  z-index: 2100;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 2px solid #ff4444;
+}
+
+
 
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: env(safe-area-inset-top, 0px);
+  top: 48px; /* Debajo del rectángulo blanco */
   left: -100%;
   width: 260px;
-  height: calc(100vh - env(safe-area-inset-top, 0px));
+  height: calc(100vh - 48px);
   background-color: #fff;
   transition: 0.3s;
-  z-index: 1000;
+  z-index: 2100;
   box-shadow: 2px 0 16px 0 rgba(255, 0, 0, 0.07);
   border-top-right-radius: 18px;
   border-bottom-right-radius: 18px;
@@ -110,20 +123,7 @@ body {
   color: #d32f2f;
 }
 
-/* Header principal */
-.top-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 24px;
-  background-color: #ff4444;
-  color: white;
-  border-bottom: none;
-  box-shadow: none;
-  border-radius: 0;
-  /* SOLO aquí el safe-area-top */
-  margin-top: env(safe-area-inset-top, 0px);
-}
+
 
 .menu-icon {
   cursor: pointer;
@@ -158,10 +158,23 @@ body {
   flex: 1;
 }
 
+/* Contenedor principal */
+.container {
+  position: relative;
+  max-width: 430px;
+  margin: 0 auto;
+  height: 100%;
+  background-color: #000000; // donde dice bienvenido
+  box-shadow: 0 4px 32px 0 rgba(255, 0, 0, 0.07),
+    0 1.5px 6px 0 rgba(0, 0, 0, 0.03);
+  border-radius: 0;
+  overflow: hidden;
+  padding-top: 94px; /* Espacio para statusbar y header */
+}
+
 /* Contenido principal */
 .main-content {
   padding: 36px 28px 0 28px;
-  /* NO uses safe-area-top aquí */
 }
 
 .main-content h1 {
@@ -265,7 +278,6 @@ body.dark-theme .menu a:focus i {
 body.dark-theme .top-header {
   background: linear-gradient(90deg, #f70000 60%, #d32f2f 100%);
   border-bottom: 2px solid #ff4444;
-  margin-top: env(safe-area-inset-top, 0px);
 }
 
 body.dark-theme .logo {
