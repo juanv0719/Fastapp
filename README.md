@@ -54,6 +54,11 @@ cd Fastapp
 ```bash
 npm install
 ```
+Nota : si te sale C:\Users\Administrador\Desktop\Fastapp> npm install
+npm : No se puede cargar el archivo C:\Program Files\nodejs\npm.ps1. El archivo C:\Program Files\nodejs\npm.ps1 no está firmado digitalmente. No se puede ejecutar este script en el sistema actual.n el sistema actual. ink/?LinkID=135170.
+Para obtener más información acerca de la ejecución de scripts y la configuración de la directiva de ejecución, consulta about_Execution_Policies en https:/go.microsoft.com/fwlink/?LinkID=135170.
+En línea: 1 Carácter: 1 
+--> se debe a que las directivas de windows no permiten instalar nada , para solucionar el error ejecuta en poweshell como admin : Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned  , y responde Y o SI para que cambie la directiva
 
 ### 5. Instalar Ionic CLI (si no lo tienes)
 
