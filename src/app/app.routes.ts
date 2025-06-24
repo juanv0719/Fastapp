@@ -17,5 +17,9 @@ export const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'tproducto',
+    loadComponent: () => import('./tproducto/tproducto.page').then(m => m.TproductoPage)
   }
 ];

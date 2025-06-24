@@ -25,6 +25,7 @@ const routes: Routes = [
     path: 'productos-totales',
     loadChildren: () => import('./productos-totales/productos-totales.module').then( m => m.ProductosTotalesPageModule)
   },
+<<<<<<< HEAD
 
 
 ];
@@ -36,3 +37,18 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+=======
+  {
+    path: 'tproducto',
+    loadChildren: () => import('./tproducto/tproducto.module').then(m => m.TproductoPageModule)
+  }
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
+>>>>>>> ad980ea (menu)
