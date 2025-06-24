@@ -17,5 +17,16 @@ export const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  }
+  },
+  
+{
+  path: 'productos-totales',
+  loadComponent: () => import('./productos-totales/productos-totales.page').then(m => m.ProductosTotalesPage)
+},
+
+{
+  path: 'productos',
+  loadChildren: () => import('./productos/productos.module').then(m => m.ProductosPageModule)
+}
+
 ];

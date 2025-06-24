@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Botón de filtros o menú lateral -->
+    <ion-buttons slot="start">
+      <ion-icon name="options-outline"></ion-icon>
+    </ion-buttons>
+
+    <!-- Barra de búsqueda mejorada (más corta y centrada visualmente) -->
+    <div class="busqueda-contenedor">
+      <ion-searchbar placeholder="Buscar..." class="busqueda"></ion-searchbar>
+    </div>
+
+    <!-- Icono de búsqueda -->
+    <ion-buttons slot="end">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Contenedor horizontal: imagen a la izquierda, info al lado -->
+  <div class="detalle-producto">
+    <!-- Columna izquierda: imagen del producto y su código -->
+    <div class="columna-izquierda">
+      <img src="assets/tapagas.jpeg" alt="Tapa de Gasolina" class="imagen-producto" />
+      <p class="codigo">COD: TGC-02</p>
+    </div>
+
+    <!-- Columna derecha: nombre, marca, precio dinámico, control de cantidad -->
+    <div class="columna-derecha">
+      <h2 class="marca">JORZABA</h2>
+      <p class="nombre-producto">Tapa de Gasolina con Rosca y Llave</p>
+
+      <!-- Precio actualizado en tiempo real -->
+      <p class="precio">S/. {{ precioTotal.toFixed(2) }}</p>
+
+      <!-- Selector de cantidad -->
+      <div class="cantidad-selector">
+        <ion-button fill="outline" size="small" (click)="disminuirCantidad()" [disabled]="cantidad <= 1">-</ion-button>
+        <span class="cantidad">{{ cantidad }}</span>
+        <ion-button fill="outline" size="small" (click)="aumentarCantidad()" [disabled]="cantidad >= 99">+</ion-button>
+      </div>
+
+      <!-- Mensaje de límite -->
+      <p class="limite">Máximo 99 unidades</p>
+    </div>
+  </div>
+
+  <!-- Ficha técnica y descripción -->
+  <div class="info-contenedor">
+    <div class="ficha-tecnica">
+      <h3>Ficha técnica</h3>
+      <p><strong>Material:</strong> Plástico y metal</p>
+      <p><strong>Compatibilidad:</strong> Depósitos roscados estándar</p>
+      <p><strong>Color:</strong> Negro</p>
+      <p><strong>Voltaje:</strong> N/A</p>
+    </div>
+
+    <div class="descripcion">
+      <h3>Descripción</h3>
+      <p>Tapa de seguridad con cierre de rosca y llave, evita derrames y accesos no autorizados.</p>
+    </div>
+  </div>
+
+  <!-- Icono de retroceso (ahora en la parte inferior derecha) -->
+  <ion-icon class="icono-retroceso" name="chevron-back-circle-outline"></ion-icon>
+</ion-content>
+
