@@ -5,6 +5,8 @@ ion-header, ion-toolbar {
   border-radius: 0;
   border-bottom: none;
   padding: 0;
+  top : 10px; /* Debajo de .statusbar-bg */
+  height: 60px;
 }
 .statusbar-bg {
   position: fixed;
@@ -24,6 +26,34 @@ ion-header, ion-toolbar {
   gap: 8px;
   z-index: 1900
 }
+
+
+.sidebar {
+  position: fixed;
+  top: 25px;
+  left: -320px;
+  width: 290px;
+  transition: 0.3s;
+  height: 100vh;
+  background: #fff;
+  z-index: 2100;
+  box-shadow: 2px 0 16px 0 rgba(0,0,0,0.07);
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  transition: left 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  border-top-right-radius: 18px;
+  padding: 0 0 10px 0;
+  top: 45px; /* Debajo de .statusbar-bg */
+  height: 85px;
+  background: linear-gradient(90deg, #ff4444 60%, #ff4444 90%);
+  z-index: 2100; 
+}
+
 .custom-toolbar {
   background: #360505;
   padding: 0;
@@ -75,10 +105,12 @@ ion-content {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   padding: 10px;
+  padding-top: 25px; // Esto empuja el grid debajo del header
 }
 
 .producto-card {
-  background: #fff;
+  
+  background: #ffffff;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
@@ -147,33 +179,10 @@ ion-content {
   cursor: pointer;
 }
 
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -320px;
-  width: 290px;
-  height: 100vh;
-  background: #fff;
-  z-index: 2100;
-  box-shadow: 2px 0 16px 0 rgba(0,0,0,0.07);
-  border-top-right-radius: 18px;
-  border-bottom-right-radius: 18px;
-  transition: left 0.3s;
-  display: flex;
-  flex-direction: column;
-}
 .sidebar.active {
   left: 0;
 }
-.sidebar-header {
-  background: #ff4444;
-  border-top-right-radius: 18px;
-  padding: 0 0 10px 0;
-  top: 25px; /* Debajo de .statusbar-bg */
-  height: 85px;
-  background: linear-gradient(90deg, #ff4444 60%, #ff4444 90%);
-  z-index: 2100; 
-}
+
 .sidebar-title {
   display: flex;
   justify-content: space-between;
@@ -226,7 +235,7 @@ ion-content {
 .sidebar-icon {
   width: 38px;
   height: 38px;
-  background: #ff4444;
+  background: #f30404;
   border-radius: 6px;
   margin-right: 10px;
 }
@@ -253,13 +262,7 @@ ion-content {
 .sidebar-arrow i {
   font-size: 22px;
 }
-.sidebar-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.15);
-  z-index: 2999;
-  display: none;
-}
+
 .sidebar-overlay.active {
   display: block;
 }
