@@ -15,6 +15,6 @@ import { ProductosTotalesPage } from './productos-totales.page';
     IonicModule,
     ProductosTotalesPageRoutingModule
   ],
-  declarations: [ProductosTotalesPage]
+  
 })
 export class ProductosTotalesPageModule {}

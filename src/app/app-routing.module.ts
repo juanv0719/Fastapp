@@ -21,12 +21,19 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () =>
       import('./register/register.module').then((m) => m.RegisterPageModule),
-  },  {
+  },
+  {
     path: 'productos-totales',
-    loadChildren: () => import('./productos-totales/productos-totales.module').then( m => m.ProductosTotalesPageModule)
+    loadChildren: () => 
+      import('./productos-totales/productos-totales.module').then( m => m.ProductosTotalesPageModule)
+  },
+  {
+    path: 'pruductos',
+    loadChildren: () => import('./productos/productos.module').then( m => m.PruductosPageModule)
   },
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 
 ];
 
@@ -42,6 +49,10 @@ export class AppRoutingModule {}
     path: 'tproducto',
     loadChildren: () => import('./tproducto/tproducto.module').then(m => m.TproductoPageModule)
   }
+=======
+
+
+>>>>>>> kin1.0
 ];
 
 @NgModule({
@@ -51,4 +62,7 @@ export class AppRoutingModule {}
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+<<<<<<< HEAD
 >>>>>>> ad980ea (menu)
+=======
+>>>>>>> kin1.0

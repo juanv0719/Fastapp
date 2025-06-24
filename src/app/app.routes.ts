@@ -18,8 +18,22 @@ export const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+<<<<<<< HEAD
   {
     path: 'tproducto',
     loadComponent: () => import('./tproducto/tproducto.page').then(m => m.TproductoPage)
   }
+=======
+  
+{
+  path: 'productos-totales',
+  loadComponent: () => import('./productos-totales/productos-totales.page').then(m => m.ProductosTotalesPage)
+},
+
+{
+  path: 'productos',
+  loadChildren: () => import('./productos/productos.module').then(m => m.ProductosPageModule)
+}
+
+>>>>>>> kin1.0
 ];
