@@ -2,60 +2,75 @@
 
 Este proyecto es una aplicación móvil desarrollada con Ionic Framework y Angular. Utiliza Firebase para la configuración de la base de datos y autenticación.
 
+---
+
 ## Estructura del Proyecto y Archivos Clave
 
-El proyecto sigue la estructura estándar de una aplicación Ionic/Angular. A continuación, se detallan algunos archivos y directorios importantes:
-
-- **`src/app/`**: Contiene los módulos y componentes principales de la aplicación, organizados por funcionalidades (e.g., `home`, `login`, `register`).
+- **`src/app/`**: Contiene los módulos y componentes principales de la aplicación, organizados por funcionalidades (e.g., `home`, `login`, `register`, etc.).
 - **`src/assets/`**: Almacena recursos estáticos como imágenes.
-- **`src/environments/environment.ts`**: Define las variables de entorno para el desarrollo. Incluye la configuración de Firebase, como se muestra a continuación:
+- **`src/environments/environment.ts`**: Define las variables de entorno para el desarrollo. Incluye la configuración de Firebase, por ejemplo:
 
   ```typescript
   export const environment = {
     production: false,
     firebaseConfig: {
-      apiKey: "AIzaSyAhi261xvEPQCG-yEWMNQcIjwOvrCD-rTo",
-      authDomain: "fastapp-75369.firebaseapp.com",
-      projectId: "fastapp-75369",
-      storageBucket: "fastapp-75369.appspot.com",
-      messagingSenderId: "28617958616",
-      appId: "1:28617958616:web:9e7e7ec015de6f6627e3ad",
-      measurementId: "G-CL6Q00FJLS",
+      apiKey: "TU_API_KEY",
+      authDomain: "TU_AUTH_DOMAIN",
+      projectId: "TU_PROJECT_ID",
+      storageBucket: "TU_STORAGE_BUCKET",
+      messagingSenderId: "TU_MESSAGING_SENDER_ID",
+      appId: "TU_APP_ID",
+      measurementId: "TU_MEASUREMENT_ID",
     },
   };
   ```
 
-- **`package.json`**: Gestiona las dependencias del proyecto y los scripts de construcción. Aquí se listan las librerías y herramientas necesarias para el desarrollo y despliegue de la aplicación.
+- **`package.json`**: Gestiona las dependencias del proyecto y los scripts de construcción.
+
+---
 
 ## Guía de Instalación y Ejecución
 
-Sigue estos pasos para instalar y ejecutar el proyecto en tu entorno local:
+Sigue estos pasos para instalar y ejecutar el proyecto en cualquier computadora:
 
-### 1. Clonar el repositorio
+### 1. Instalar Node.js y npm
 
-Abre una terminal y ejecuta:
+Descarga e instala [Node.js](https://nodejs.org/) (recomendado v18 o superior).  
+Esto instalará también `npm`.
+
+### 2. Instalar Git
+
+Descarga e instala [Git](https://git-scm.com/).
+
+### 3. Clonar el repositorio
 
 ```bash
 git clone https://github.com/juanv0719/Fastapp.git
 cd Fastapp
 ```
 
-### 2. Instalar dependencias
-
-Asegúrate de tener instalado [Node.js](https://nodejs.org/) (recomendado v18 o superior) y [npm](https://www.npmjs.com/).  
-Luego instala las dependencias del proyecto:
+### 4. Instalar dependencias
 
 ```bash
 npm install
 ```
 
-### 3. Instalar Ionic CLI (si no lo tienes)
+### 5. Instalar Ionic CLI (si no lo tienes)
 
 ```bash
 npm install -g @ionic/cli
 ```
 
-### 4. Iniciar el servidor de desarrollo
+### 6. Abrir el proyecto en Visual Studio Code
+
+- Abre Visual Studio Code.
+- Ve a **Archivo > Abrir carpeta...** y selecciona la carpeta `Fastapp`.
+- O desde la terminal:
+  ```bash
+  code .
+  ```
+
+### 7. Iniciar el servidor de desarrollo
 
 ```bash
 ionic serve
@@ -81,31 +96,23 @@ En el archivo `package.json` se definen los siguientes scripts:
 
 ## Crear y Navegar a Nuevas Páginas
 
-Para añadir una nueva página a tu aplicación y permitir la navegación a ella, sigue estos pasos:
-
 ### 1. Generar la nueva página
 
 ```bash
-ionic generate page nombre-de-la-pagina // asi van a crear con toda la estructura de la pagina y lista para que solo coloquen su codigo
+ionic generate page nombre-de-la-pagina
 ```
 
-Esto creará una nueva carpeta en `src/app/nombre-de-la-pagina` con los archivos necesarios (HTML, CSS, TypeScript).
+Esto creará una nueva carpeta en `src/app/nombre-de-la-pagina` con los archivos necesarios (HTML, SCSS, TypeScript).
 
 ### 2. Configurar la ruta en `app.routes.ts`
 
-Abre el archivo `src/app/app.routes.ts` y añade una nueva entrada al array `routes`. Asegúrate de importar el módulo de la nueva página.
+Abre el archivo `src/app/app.routes.ts` y añade una nueva entrada al array `routes`:
 
 ```typescript
-// ... otras importaciones
-import { NombreDeLaPaginaPage } from "./nombre-de-la-pagina/nombre-de-la-pagina.page";
-
-export const routes: Routes = [
-  // ... otras rutas existentes
-  {
-    path: "nombre-de-la-pagina",
-    loadComponent: () => import("./nombre-de-la-pagina/nombre-de-la-pagina.page").then((m) => m.NombreDeLaPaginaPage),
-  },
-];
+{
+  path: "nombre-de-la-pagina",
+  loadComponent: () => import("./nombre-de-la-pagina/nombre-de-la-pagina.page").then((m) => m.NombreDeLaPaginaPage),
+},
 ```
 
 **Nota:** Reemplaza `NombreDeLaPaginaPage` y `nombre-de-la-pagina` con los nombres correctos de tu página.
@@ -134,6 +141,18 @@ Después de seguir estos pasos, podrás acceder a tu nueva página navegando a l
 
 ---
 
+## Notas adicionales
+
+- Si usas Firebase, revisa que el archivo `src/environments/environment.ts` tenga la configuración correcta.
+- Si agregas imágenes, colócalas en `src/assets/`.
+- Si tienes problemas de dependencias, ejecuta nuevamente `npm install`.
+- Si tienes conflictos de puertos, puedes cambiar el puerto así:
+  ```bash
+  ionic serve --port=8101
+  ```
+
+---
+
 ## Autor
 
-Repositorio
+Juan V
