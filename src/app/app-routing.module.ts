@@ -24,35 +24,25 @@ const routes: Routes = [
   },
   {
     path: 'productos-totales',
-    loadChildren: () => 
-      import('./productos-totales/productos-totales.module').then( m => m.ProductosTotalesPageModule)
+    loadChildren: () =>
+      import('./productos-totales/productos-totales.module').then(
+        (m) => m.ProductosTotalesPageModule
+      ),
   },
   {
-    path: 'pruductos',
-    loadChildren: () => import('./productos/productos.module').then( m => m.PruductosPageModule)
+    path: 'productos', // 🔧 corregido 'pruductos' → 'productos'
+    loadChildren: () =>
+      import('./productos/productos.module').then(
+        (m) => m.ProductosPageModule
+      ),
   },
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-
-];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
-=======
   {
     path: 'tproducto',
-    loadChildren: () => import('./tproducto/tproducto.module').then(m => m.TproductoPageModule)
-  }
-=======
-
-
->>>>>>> kin1.0
+    loadChildren: () =>
+      import('./tproducto/tproducto.module').then(
+        (m) => m.TproductoPageModule
+      ),
+  },
 ];
 
 @NgModule({
@@ -62,7 +52,3 @@ export class AppRoutingModule {}
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-<<<<<<< HEAD
->>>>>>> ad980ea (menu)
-=======
->>>>>>> kin1.0
