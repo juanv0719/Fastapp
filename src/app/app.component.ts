@@ -14,8 +14,23 @@ import { StatusBar, Style } from '@capacitor/status-bar';
 export class AppComponent {
   isMenuOpen = false;
   isDarkTheme = false;
+  showMenu = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      const currentUrl = this.router.url;
+      // Mostrar menú solo en home, productos, perfil, config
+      this.showMenu = [
+        '/home',
+        '/productos',
+        '/perfil',
+        '/config'
+      ].some(path => currentUrl.startsWith(path));
+      if (!this.showMenu) {
+        this.isMenuOpen = false;
+      }
+    });
+  }
 
   ngOnInit() {
     this.isDarkTheme = localStorage.getItem('darkTheme') === 'true';

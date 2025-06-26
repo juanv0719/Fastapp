@@ -1,58 +1,60 @@
 <ion-app>
-  <!-- Rectángulo blanco arriba (más alto que la barra de estado) -->
-  <div class="statusbar-bg"></div>
+  <ng-container *ngIf="showMenu">
+    <!-- Rectángulo blanco arriba (más alto que la barra de estado) -->
+    <div class="statusbar-bg"></div>
 
-  <!-- Header fuera del container -->
-  <div class="top-header">
-    <i id="menuBtn" class="fas fa-bars menu-icon" (click)="openMenu()"></i>
-    <div class="logo">FAST APP</div>
-    <i class="fas fa-shopping-cart cart-icon"></i>
-  </div>
+    <!-- Header fuera del container -->
+    <div class="top-header">
+      <i id="menuBtn" class="fas fa-bars menu-icon" (click)="openMenu()"></i>
+      <div class="logo">FAST APP</div>
+      <i class="fas fa-shopping-cart cart-icon"></i>
+    </div>
 
-  <!-- Sidebar fuera del container -->
-  <div class="sidebar" [class.active]="isMenuOpen">
-    <div class="sidebar-header">
-      <div class="header-content">
-        <span>Bienvenido</span>
-        <i id="closeBtn" class="fas fa-times" (click)="closeMenu()"></i>
+    <!-- Sidebar fuera del container -->
+    <div class="sidebar" [class.active]="isMenuOpen">
+      <div class="sidebar-header">
+        <div class="header-content">
+          <span>Bienvenido</span>
+          <i id="closeBtn" class="fas fa-times" (click)="closeMenu()"></i>
+        </div>
+      </div>
+      <div class="menu">
+        <a routerLink="/home" (click)="closeMenu()">
+          <i class="fas fa-home"></i>
+          <span>Inicio</span>
+        </a>
+        <a routerLink="/productos" (click)="closeMenu()">
+          <i class="fas fa-car"></i>
+          <span>Productos</span>
+        </a>
+        <a routerLink="/perfil" (click)="closeMenu()">
+          <i class="fas fa-user"></i>
+          <span>Perfil</span>
+        </a>
+        <a routerLink="/config" (click)="closeMenu()">
+          <i class="fas fa-cog"></i>
+          <span>Configuración</span>
+        </a>
+        <a id="theme-toggle" (click)="toggleTheme()">
+          <i
+            class="fas"
+            [class.fa-sun]="isDarkTheme"
+            [class.fa-moon]="!isDarkTheme"
+          ></i>
+          <span>Tema</span>
+        </a>
+        <a (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Cerrar sesión</span>
+        </a>
       </div>
     </div>
-    <div class="menu">
-      <a routerLink="/home" (click)="closeMenu()">
-        <i class="fas fa-home"></i>
-        <span>Inicio</span>
-      </a>
-      <a routerLink="/productos" (click)="closeMenu()">
-        <i class="fas fa-car"></i>
-        <span>Productos</span>
-      </a>
-      <a routerLink="/perfil" (click)="closeMenu()">
-        <i class="fas fa-user"></i>
-        <span>Perfil</span>
-      </a>
-      <a routerLink="/config" (click)="closeMenu()">
-        <i class="fas fa-cog"></i>
-        <span>Configuración</span>
-      </a>
-      <a id="theme-toggle" (click)="toggleTheme()">
-        <i
-          class="fas"
-          [class.fa-sun]="isDarkTheme"
-          [class.fa-moon]="!isDarkTheme"
-        ></i>
-        <span>Tema</span>
-      </a>
-      <a (click)="logout()">
-        <i class="fas fa-sign-out-alt"></i>
-        <span>Cerrar sesión</span>
-      </a>
-    </div>
-  </div>
+  </ng-container>
 
   <div class="container">
-    <div class="main-content" [class.blurred]="isMenuOpen">
+    <div class="main-content" [class.blurred]="isMenuOpen && showMenu">
       <ion-router-outlet></ion-router-outlet>
     </div>
-    <div class="overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>
+    <div class="overlay" [class.active]="isMenuOpen && showMenu" (click)="closeMenu()"></div>
   </div>
 </ion-app>
