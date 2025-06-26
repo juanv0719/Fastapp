@@ -67,4 +67,21 @@ export class AppComponent {
     localStorage.clear();
     this.router.navigate(['/login']);
   }
+// Para navegación entre páginas de mi menu
+  goToHome() {
+    this.closeMenu();
+    this.router.navigateByUrl('/home');
+  }
+  goToProductos() {
+    this.closeMenu();
+    this.router.navigateByUrl('/productos');
+  }
+  goToPerfil() {
+    this.closeMenu();
+    this.router.navigateByUrl('/perfil');
+  }
+  goToConfig() {
+    this.closeMenu();
+    this.router.navigateByUrl('/config');
+  }
 }

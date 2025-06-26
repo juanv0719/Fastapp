@@ -23,13 +23,7 @@ const routes: Routes = [
       import('./register/register.module').then((m) => m.RegisterPageModule),
   },
  
-  {
-    path: 'tproducto',
-    loadChildren: () =>
-      import('./tproducto/tproducto.module').then(
-        (m) => m.TproductoPageModule
-      ),
-  },
+{ path: 'productos', loadChildren: () => import('./tproducto/tproducto.module').then(m => m.TproductoPageModule) }
 ];
 
 @NgModule({
