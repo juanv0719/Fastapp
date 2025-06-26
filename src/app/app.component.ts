@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-
+import { Router } from '@angular/router';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +12,44 @@ import { CommonModule } from '@angular/common';
   imports: [IonicModule, CommonModule],
 })
 export class AppComponent {
-  constructor() {}
+  isMenuOpen = false;
+  isDarkTheme = false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.isDarkTheme = localStorage.getItem('darkTheme') === 'true';
+    this.applyTheme();
+    this.setStatusBar();
+  }
+
+  openMenu() {
+    this.isMenuOpen = true;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+    this.applyTheme();
+    localStorage.setItem('darkTheme', this.isDarkTheme.toString());
+  }
+
+  private applyTheme() {
+    document.body.classList.toggle('dark-theme', this.isDarkTheme);
+  }
+
+  async setStatusBar() {
+    try {
+      await StatusBar.setStyle({ style: Style.Light });
+      await StatusBar.setBackgroundColor({ color: '#ffffff' });
+    } catch (e) {}
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }
