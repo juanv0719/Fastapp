@@ -22,20 +22,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./register/register.module').then((m) => m.RegisterPageModule),
   },
-  {
-    path: 'productos-totales',
-    loadChildren: () =>
-      import('./productos-totales/productos-totales.module').then(
-        (m) => m.ProductosTotalesPageModule
-      ),
-  },
-  {
-    path: 'productos', // 🔧 corregido 'pruductos' → 'productos'
-    loadChildren: () =>
-      import('./productos/productos.module').then(
-        (m) => m.ProductosPageModule
-      ),
-  },
+ 
   {
     path: 'tproducto',
     loadChildren: () =>
