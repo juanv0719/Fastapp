@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TproductoPageRoutingModule } from './tproducto-routing.module';
 
 import { TproductoPage } from './tproducto.page';
+import { MenuCategoriasComponent } from '../components/menu-categorias/menu-categorias.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { TproductoPage } from './tproducto.page';
     IonicModule,
     TproductoPageRoutingModule
   ],
-  declarations: [TproductoPage]
+  declarations: [TproductoPage, MenuCategoriasComponent]
 })
 export class TproductoPageModule {}

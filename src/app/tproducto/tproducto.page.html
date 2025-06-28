@@ -1,22 +1,24 @@
 <ion-header>
-    <!-- Rectángulo blanco arriba (más alto que la barra de estado) -->
+  <!-- Rectángulo blanco arriba (más alto que la barra de estado) -->
   <div class="statusbar-bg"></div>
   <ion-toolbar class="custom-toolbar">
     <div class="toolbar-content">
-       <button class="menu-btn" (click)="openMenu()">
+      <button class="menu-btn" (click)="openMenu()">
         <i class="fas fa-bars"></i>
       </button>
-      <input class="search-input" type="text" placeholder="BUSCAR PRODUCTOS..." />
+      <input
+        class="search-input"
+        type="text"
+        placeholder="BUSCAR PRODUCTOS..."
+      />
       <button class="cart-btn">
         <i class="fas fa-shopping-cart cart-icon"></i>
       </button>
-    
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
   <div class="productos-grid">
     <div class="producto-card" *ngFor="let producto of productos">
       <img [src]="producto.imagen" alt="Producto" />
@@ -30,28 +32,9 @@
   </div>
 </ion-content>
 
-<!-- Sidebar -->
-<div class="sidebar" [class.active]="isMenuOpen">
-  <div class="sidebar-header">
-    <div class="sidebar-title">
-      <span class="logo-sidebar">Fast App</span>
-      <i class="fas fa-times close-btn" (click)="closeMenu()"></i>
-    </div>
-    <div class="sidebar-subtitle">
-      <i class="fas fa-box-open"></i>
-      <span>Todos los productos...</span>
-    </div>
-  </div>
-  <div class="sidebar-menu">
-    <div class="sidebar-item" *ngFor="let cat of categorias">
-      <div class="sidebar-icon"></div>
-      <span class="sidebar-text">{{ cat }}</span>
-      <button class="sidebar-arrow">
-        <i class="fas fa-caret-down"></i>
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- Overlay para cerrar el menú al hacer click fuera -->
-<div class="sidebar-overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>
+<!-- Sidebar de categorías como componente -->
+<app-menu-categorias
+  [isMenuOpen]="isMenuOpen"
+  [categorias]="categorias"
+  (close)="closeMenu()"
+></app-menu-categorias>

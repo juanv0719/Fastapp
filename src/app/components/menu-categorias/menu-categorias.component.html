@@ -1,0 +1,43 @@
+<!-- Sidebar de categorías -->
+<div class="sidebar" [class.active]="isMenuOpen">
+  <div class="sidebar-header">
+    <div class="sidebar-title">
+      <span class="logo-sidebar">Fast App</span>
+      <i class="fas fa-times close-btn" (click)="closeMenu()"></i>
+    </div>
+    <div class="sidebar-subtitle">
+      <i class="fas fa-box-open"></i>
+      <span>Todos los productos</span>
+    </div>
+  </div>
+
+  <div class="sidebar-menu">
+    <div class="sidebar-item" *ngFor="let cat of categorias">
+      <div class="sidebar-icon">
+        <i class="fas fa-cube"></i>
+      </div>
+      <span class="sidebar-text">{{ cat }}</span>
+      <button class="sidebar-arrow" (click)="toggleItem(cat)">
+        <i class="fas" [class.fa-caret-down]="!expandedItems[cat]" [class.fa-caret-up]="expandedItems[cat]"></i>
+      </button>
+
+      <!-- Submenú -->
+      <div
+        class="sidebar-submenu"
+        [class.active]="expandedItems[cat]"
+      >
+        <div class="submenu-item">
+          <i class="fas fa-cogs"></i>
+          <span>Prod</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div
+  class="sidebar-overlay"
+  [class.active]="isMenuOpen"
+  (click)="closeMenu()"
+></div>

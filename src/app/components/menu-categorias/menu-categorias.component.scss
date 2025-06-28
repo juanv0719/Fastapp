@@ -1,0 +1,158 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 260px;
+  height: 100vh;
+  background-color: #fff;
+  transition: 0.3s;
+  z-index: 2200;
+  box-shadow: 2px 0 16px 0 rgba(255, 0, 0, 0.07);
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  overflow-y: auto;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-header {
+  background: linear-gradient(90deg, #ff4444 60%, #ff4444 100%);
+  padding: 0;
+  border-top-right-radius: 18px;
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  color: #fff;
+}
+
+.logo-sidebar {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.sidebar-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  padding: 0 20px 12px 20px;
+}
+
+.sidebar-menu {
+  padding: 18px 0 0 0;
+  background-color: #fff;
+}
+
+.sidebar-item {
+  background-color: #f9f2f2;
+  border-radius: 8px;
+  margin: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  transition: background 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ffeaea;
+  }
+}
+
+.sidebar-icon {
+  width: 36px;
+  height: 36px;
+  background-color: #d32f2f;
+  border-radius: 4px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    color: #fff;
+    font-size: 16px;
+  }
+}
+
+.sidebar-text {
+  flex: 1;
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+
+.sidebar-arrow {
+  background: #d32f2f;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background: #ff4444;
+  }
+}
+
+.sidebar-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 48px;
+
+  &.active {
+    max-height: 100px;
+    padding: 8px 48px;
+  }
+
+  .submenu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff0f0;
+    padding: 8px;
+    margin-top: 6px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #d32f2f;
+
+    i {
+      color: #d32f2f;
+    }
+  }
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  z-index: 2100;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
