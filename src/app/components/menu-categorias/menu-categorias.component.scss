@@ -1,13 +1,4 @@
-ion-header, ion-toolbar {
-  --background: #ff4444;
-  --color: #fff;
-  box-shadow: none;
-  border-radius: 0;
-  border-bottom: none;
-  padding: 0;
-  top : 10px; /* Debajo de .statusbar-bg */
-  height: 60px;
-}
+
 .statusbar-bg {
   position: fixed;
   top: 0;
@@ -17,20 +8,13 @@ ion-header, ion-toolbar {
   background: #ffffff;
   z-index: 2200; // Debe ser mayor que .top-header
 }
-.sidebar-header {
-  border-top-right-radius: 18px;
-  padding: 0 0 10px 0;
-  top: 45px; /* Debajo de .statusbar-bg */
-  height: 85px;
-  background: linear-gradient(90deg, #4486ff 60%, #ff4444 90%);
-  z-index: 2100; 
-}
+
 .sidebar {
   position: fixed;
-  top: 0;
+  top: 25px; /* debajo de .statusbar-bg */
   left: -100%;
   width: 460px;
-  height: 100vh;
+  height: calc(100vh - 25px); /* descontamos el alto del rectángulo blanco */
   background-color: #ffffff;
   transition: 0.3s;
   z-index: 2200;
@@ -38,7 +22,6 @@ ion-header, ion-toolbar {
   border-top-right-radius: 18px;
   border-bottom-right-radius: 18px;
   overflow-y: auto;
-  
 }
 
 .sidebar.active {
