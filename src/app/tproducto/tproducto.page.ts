@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MenuCategoriasComponent } from '../components/menu-categorias/menu-categorias.component';
+import { MenuService } from '../services/menu.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tproducto',
@@ -11,20 +13,9 @@ import { MenuCategoriasComponent } from '../components/menu-categorias/menu-cate
   templateUrl: './tproducto.page.html',
   styleUrls: ['./tproducto.page.scss'],
 })
-export class TproductoPage {
+export class TproductoPage implements OnInit {
   isMenuOpen = false;
-
-  categorias = [
-    'Tapas y Chapas',
-    'Electricos',
-    'Claxon/Sirenas',
-    'Componentes Elec.',
-    'Arrancadores y En.',
-    'Switches y Paneles',
-    'Medidores de aire',
-    'Tenazas y Bornes',
-    'Otros productos'
-  ];
+  categorias$!: Observable<{ nombre: string; submenu: string }[]>;
 
   productos = [
     {
@@ -41,6 +32,12 @@ export class TproductoPage {
     }
     // otros productos...
   ];
+
+  constructor(private menuService: MenuService) {}
+
+  ngOnInit() {
+    this.categorias$ = this.menuService.categorias$;
+  }
 
   openMenu() {
     this.isMenuOpen = true;

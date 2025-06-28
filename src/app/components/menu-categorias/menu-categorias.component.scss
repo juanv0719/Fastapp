@@ -1,16 +1,44 @@
+ion-header, ion-toolbar {
+  --background: #ff4444;
+  --color: #fff;
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: none;
+  padding: 0;
+  top : 10px; /* Debajo de .statusbar-bg */
+  height: 60px;
+}
+.statusbar-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 25px; /* Igual que el header */
+  background: #ffffff;
+  z-index: 2200; // Debe ser mayor que .top-header
+}
+.sidebar-header {
+  border-top-right-radius: 18px;
+  padding: 0 0 10px 0;
+  top: 45px; /* Debajo de .statusbar-bg */
+  height: 85px;
+  background: linear-gradient(90deg, #4486ff 60%, #ff4444 90%);
+  z-index: 2100; 
+}
 .sidebar {
   position: fixed;
   top: 0;
   left: -100%;
-  width: 260px;
+  width: 460px;
   height: 100vh;
-  background-color: #fff;
+  background-color: #ffffff;
   transition: 0.3s;
   z-index: 2200;
   box-shadow: 2px 0 16px 0 rgba(255, 0, 0, 0.07);
   border-top-right-radius: 18px;
   border-bottom-right-radius: 18px;
   overflow-y: auto;
+  
 }
 
 .sidebar.active {
@@ -113,7 +141,7 @@
     background: #ff4444;
   }
 }
-
+// para menu de categorias
 .sidebar-submenu {
   max-height: 0;
   overflow: hidden;

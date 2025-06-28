@@ -35,7 +35,7 @@ ion-header, ion-toolbar {
   width: 290px;
   transition: 0.3s;
   height: 100vh;
-  background: #fff;
+  background: #ffffff;
   z-index: 2100;
   box-shadow: 2px 0 16px 0 rgba(0,0,0,0.07);
   border-top-right-radius: 18px;
@@ -50,7 +50,7 @@ ion-header, ion-toolbar {
   padding: 0 0 10px 0;
   top: 45px; /* Debajo de .statusbar-bg */
   height: 85px;
-  background: linear-gradient(90deg, #ff4444 60%, #ff4444 90%);
+  background: linear-gradient(90deg, #4486ff 60%, #ff4444 90%);
   z-index: 2100; 
 }
 

@@ -32,9 +32,11 @@
   </div>
 </ion-content>
 
-<!-- Sidebar de categorías como componente -->
+<!-- Sidebar de categorías como componente con esto importo siempre cada menu
+ a todas las paginas que quiero en adelante -->
+ 
 <app-menu-categorias
   [isMenuOpen]="isMenuOpen"
-  [categorias]="categorias"
+  [categorias]="(categorias$ | async) || []"
   (close)="closeMenu()"
 ></app-menu-categorias>

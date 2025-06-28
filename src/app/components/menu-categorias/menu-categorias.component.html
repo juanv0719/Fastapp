@@ -1,4 +1,7 @@
+<div class="statusbar-bg"></div>
+
 <!-- Sidebar de categorías -->
+
 <div class="sidebar" [class.active]="isMenuOpen">
   <div class="sidebar-header">
     <div class="sidebar-title">
@@ -16,19 +19,19 @@
       <div class="sidebar-icon">
         <i class="fas fa-cube"></i>
       </div>
-      <span class="sidebar-text">{{ cat }}</span>
+      <span class="sidebar-text">{{ getNombre(cat) }}</span>
       <button class="sidebar-arrow" (click)="toggleItem(cat)">
-        <i class="fas" [class.fa-caret-down]="!expandedItems[cat]" [class.fa-caret-up]="expandedItems[cat]"></i>
+        <i class="fas" [class.fa-caret-down]="!expandedItems[getNombre(cat)]" [class.fa-caret-up]="expandedItems[getNombre(cat)]"></i>
       </button>
 
       <!-- Submenú -->
       <div
         class="sidebar-submenu"
-        [class.active]="expandedItems[cat]"
+        [class.active]="expandedItems[getNombre(cat)]"
       >
         <div class="submenu-item">
           <i class="fas fa-cogs"></i>
-          <span>Prod</span>
+          <span>{{ getSubmenu(cat) }}</span>
         </div>
       </div>
     </div>
