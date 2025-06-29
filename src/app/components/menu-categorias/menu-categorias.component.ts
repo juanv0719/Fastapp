@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-export type CategoriaMenu = string | { nombre: string; submenu: string };
+import { CategoriaMenu } from '../../services/menu.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-categorias',
@@ -17,20 +17,24 @@ export class MenuCategoriasComponent {
 
   expandedItems: { [key: string]: boolean } = {};
 
+  constructor(private router: Router) {}
+
+  goToHome() {
+    this.closeMenu();
+    this.router.navigateByUrl('/home');
+  }
+
   closeMenu() {
     this.close.emit();
   }
 
-  toggleItem(cat: string | { nombre: string; submenu: string }) {
-    const key = typeof cat === 'string' ? cat : cat.nombre;
+  toggleItem(cat: CategoriaMenu) {
+    const key = cat.nombre;
     this.expandedItems[key] = !this.expandedItems[key];
   }
 
-  getNombre(cat: CategoriaMenu): string {
-    return typeof cat === 'string' ? cat : cat.nombre;
-  }
-
-  getSubmenu(cat: CategoriaMenu): string {
-    return typeof cat === 'string' ? '' : cat.submenu;
+  logout() {
+    this.closeMenu();
+    this.router.navigateByUrl('/login');
   }
 }

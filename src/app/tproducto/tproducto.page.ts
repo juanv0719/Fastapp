@@ -3,7 +3,7 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MenuCategoriasComponent } from '../components/menu-categorias/menu-categorias.component';
-import { MenuService } from '../services/menu.service';
+import { MenuService, CategoriaMenu } from '../services/menu.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class TproductoPage implements OnInit {
   isMenuOpen = false;
-  categorias$!: Observable<{ nombre: string; submenu: string }[]>;
+  categorias$!: Observable<CategoriaMenu[]>;
 
   productos = [
     {

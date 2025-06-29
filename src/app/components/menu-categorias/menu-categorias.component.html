@@ -6,34 +6,49 @@
   <div class="sidebar-header">
     <div class="sidebar-title">
       <span class="logo-sidebar">Fast App</span>
+  
       <i class="fas fa-times close-btn" (click)="closeMenu()"></i>
+      
     </div>
     <div class="sidebar-subtitle">
-      <i class="fas fa-box-open"></i>
-      <span>Todos los productos</span>
+     
     </div>
   </div>
 
-  <div class="sidebar-menu">
-    <div class="sidebar-item" *ngFor="let cat of categorias">
-      <div class="sidebar-icon">
-        <i class="fas fa-cube"></i>
-      </div>
-      <span class="sidebar-text">{{ getNombre(cat) }}</span>
-      <button class="sidebar-arrow" (click)="toggleItem(cat)">
-        <i class="fas" [class.fa-caret-down]="!expandedItems[getNombre(cat)]" [class.fa-caret-up]="expandedItems[getNombre(cat)]"></i>
-      </button>
+  <div class="sidebar-content">
+    <div class="sidebar-menu">
+      <!--Boton de inicio -->
+      <div class="home-section"></div>
+       <a class="home-btn" (click)="goToHome()">
+          <i class="fas fa-home"></i>
+          <span>Inicio</span>
+        </a>
 
-      <!-- Submenú -->
-      <div
-        class="sidebar-submenu"
-        [class.active]="expandedItems[getNombre(cat)]"
-      >
-        <div class="submenu-item">
-          <i class="fas fa-cogs"></i>
-          <span>{{ getSubmenu(cat) }}</span>
+    
+      <ng-container *ngFor="let cat of categorias">
+        <div class="sidebar-item">
+          <div class="sidebar-icon">
+            <!--<i class="fas fa-cube"></i>-->
+          </div>
+          <span class="sidebar-text">{{ cat.nombre }}</span>
+          <button class="sidebar-arrow" (click)="toggleItem(cat)">
+            <i class="fas" [class.fa-caret-down]="!expandedItems[cat.nombre]" [class.fa-caret-up]="expandedItems[cat.nombre]"></i>
+          </button>
         </div>
-      </div>
+        <div class="sidebar-submenu" [class.active]="expandedItems[cat.nombre]" *ngIf="expandedItems[cat.nombre]">
+          <ul class="submenu-list">
+            <li class="submenu-item" *ngFor="let prod of cat.submenu">
+              <span>{{ prod }}</span>
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+    </div>
+    <div class="logout-container">
+      <button class="cerrar-btn" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Cerrar sesión</span>
+      </button>
     </div>
   </div>
 </div>

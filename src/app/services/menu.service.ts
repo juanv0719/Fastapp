@@ -3,23 +3,68 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+export interface CategoriaMenu {
+  nombre: string;
+  submenu: string[];
+  icon?: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class MenuService {
-  private categoriasSubject = new BehaviorSubject<{
-    nombre: string;
-    submenu: string;
-  }[]>([
-    { nombre: 'Tapas y Chapas', submenu: 'Submenú Tapas y Chapas' },
-    { nombre: 'Electricos', submenu: 'eLELddddLLL' },
-    { nombre: 'Claxon/Sirenas', submenu: 'Submenú Claxon/Sirenas' },
-    { nombre: 'Componentes Elec.', submenu: 'Submenú Componentes Elec.' },
-    { nombre: 'Arrancadores y En.', submenu: 'Submenú Arrancadores y En.' },
-    { nombre: 'Switches y Paneles', submenu: 'Submenú Switches y Paneles' },
-    { nombre: 'Medidores de aire', submenu: 'Submenú Medidores de aire' },
-    { nombre: 'Tenazas y Bornes', submenu: 'Submenú Tenazas y Bornes' },
-    { nombre: 'Otros productos', submenu: 'Submenú Otros productos' },
+  private categoriasSubject = new BehaviorSubject<CategoriaMenu[]>([
+    {
+      nombre: 'Tapas y Chapas',
+      submenu: [
+        'Tapa de gasolina con rosca y llave',
+        'Tapa de gasolina cromada 35mm',
+        'Tapa de gasolina con rosca y llave',
+        'Chapa de encendido universal 24V (metal)',
+        'Chapa de encendido 12V S/M',
+      ],
+      icon: 'fa-gas-pump',
+    },
+    {
+      nombre: 'Electricos',
+      submenu: ['Alternador 12V', 'Regulador de voltaje', 'Bobina de encendido'],
+      icon: 'fa-bolt',
+    },
+    {
+      nombre: 'Claxon/Sirenas',
+      submenu: ['Claxon simple', 'Sirena doble tono'],
+      icon: 'fa-bell',
+    },
+    {
+      nombre: 'Componentes Elec.',
+      submenu: ['Fusibles', 'Relés', 'Portafusibles'],
+      icon: 'fa-microchip',
+    },
+    {
+      nombre: 'Arrancadores y En.',
+      submenu: ['Arrancador 24V', 'Solenoide de arranque'],
+      icon: 'fa-car-battery',
+    },
+    {
+      nombre: 'Switches y Paneles',
+      submenu: ['Switch de luces', 'Panel de control'],
+      icon: 'fa-toggle-on',
+    },
+    {
+      nombre: 'Medidores de aire',
+      submenu: ['Medidor digital', 'Sensor de flujo'],
+      icon: 'fa-tachometer-alt',
+    },
+    {
+      nombre: 'Tenazas y Bornes',
+      submenu: ['Tenaza universal', 'Borne positivo', 'Borne negativo'],
+      icon: 'fa-tools',
+    },
+    {
+      nombre: 'Otros productos',
+      submenu: ['Producto especial 1', 'Producto especial 2'],
+      icon: 'fa-box-open',
+    },
   ]);
 
   public categorias$ = this.categoriasSubject.asObservable();
@@ -28,7 +73,7 @@ export class MenuService {
     return this.categoriasSubject.getValue();
   }
 
-  setCategorias(categorias: { nombre: string; submenu: string }[]) {
+  setCategorias(categorias: CategoriaMenu[]) {
     this.categoriasSubject.next(categorias);
   }
 }

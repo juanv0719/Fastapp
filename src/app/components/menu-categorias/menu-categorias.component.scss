@@ -1,4 +1,3 @@
-
 .statusbar-bg {
   position: fixed;
   top: 0;
@@ -11,18 +10,32 @@
 
 .sidebar {
   position: fixed;
-  top: 25px; /* debajo de .statusbar-bg */
+  top: 25px;
   left: -100%;
-  width: 460px;
-  height: calc(100vh - 25px); /* descontamos el alto del rectángulo blanco */
+  width: 260px;
+  max-height: calc(100vh - 25px);
+  height: auto;
   background-color: #ffffff;
   transition: 0.3s;
   z-index: 2200;
   box-shadow: 2px 0 16px 0 rgba(255, 0, 0, 0.07);
   border-top-right-radius: 18px;
   border-bottom-right-radius: 18px;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
+
+.sidebar-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding-bottom: 24px;
+}
+
 
 .sidebar.active {
   left: 0;
@@ -31,7 +44,7 @@
 .sidebar-header {
   background: linear-gradient(90deg, #ff4444 60%, #ff4444 100%);
   padding: 0;
-  border-top-right-radius: 18px;
+  border-top-right-radius: 18px; width: 260px; height: 53px; 
 }
 
 .sidebar-title {
@@ -39,7 +52,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 20px;
-  color: #fff;
+  color: #ffffff;
 }
 
 .logo-sidebar {
@@ -59,98 +72,135 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #fff;
+  color: #ffffff;
   padding: 0 20px 12px 20px;
 }
-
+/// cambio de menu de sidebar (los rectangulos vertical)
 .sidebar-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   padding: 18px 0 0 0;
-  background-color: #fff;
-}
+  background-color: #ffffff;
+  justify-content: flex-start;
 
+}
+/// cambio de menu de sidebar (Los rectangulos de cada menu)
 .sidebar-item {
-  background-color: #f9f2f2;
-  border-radius: 8px;
-  margin: 8px 12px;
+  background-color:#ff4444 60%;
+  border-radius: 12px;
+  margin: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px;
+  justify-content: flex-start;
+  padding: 10px 8px 10px 12px;
   transition: background 0.3s;
   cursor: pointer;
-
-  &:hover {
-    background-color: #ffeaea;
-  }
+  width: 250px;
+  min-width: unset;
+  max-width: unset;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
+  flex: 0 0 auto;
+  color: #000000;
 }
 
-.sidebar-icon {
-  width: 36px;
-  height: 36px;
-  background-color: #d32f2f;
-  border-radius: 4px;
-  margin-right: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  i {
-    color: #fff;
-    font-size: 16px;
-  }
+.sidebar-icon i {
+  font-size: 20px;
+  color: #7a1212;
 }
 
+
+
+/// cambio de menu de sidebar
 .sidebar-text {
   flex: 1;
-  font-weight: 600;
-  font-size: 15px;
-  color: #333;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  margin-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
+/// cambio de menu de sidebar flechita
 .sidebar-arrow {
-  background: #d32f2f;
+  background: #f70101;
   border: none;
-  border-radius: 8px;
-  color: #fff;
-  width: 30px;
-  height: 30px;
+  border-radius: 50%;
+  color: #ffffff;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background 0.3s;
   cursor: pointer;
-
-  &:hover {
-    background: #ff4444;
-  }
+  font-size: 16px;
+  margin-left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
+
 // para menu de categorias
 .sidebar-submenu {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
-  padding: 0 48px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0 0 18px 18px;
+  box-shadow: none;
+  margin: 0;
+}
+.sidebar-submenu.active,
+.sidebar-submenu[style*="display: block"] {
+  max-height: 400px;
+  //padding: 12px 0 12px 0;
+  background: #fff;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-top: 0;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
 
-  &.active {
-    max-height: 100px;
-    padding: 8px 48px;
-  }
+.submenu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 18px 0 18px;
+}
 
-  .submenu-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #fff0f0;
-    padding: 8px;
-    margin-top: 6px;
-    border-radius: 6px;
-    font-size: 14px;
+.submenu-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: transparent;
+  padding: 8px 0;
+  margin: 0;
+  border-radius: 0;
+  font-size: 18px;
+  color: #444;
+  i {
     color: #d32f2f;
-
-    i {
-      color: #d32f2f;
-    }
+    font-size: 10px;
+    margin-top: 8px;
   }
+}
+
+/* Título de categoría sobre el submenú */
+.sidebar-submenu.active::before {
+  content: attr(data-title);
+  display: block;
+  font-weight: 700;
+  font-size: 18px;
+  color: #222222;
+  margin-bottom: 10px;
+  margin-left: 2px;
 }
 
 .sidebar-overlay {
@@ -166,4 +216,71 @@
   &.active {
     display: block;
   }
+}
+
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* espacio entre icono y texto */
+  background-color: #f6f6f6; /* color verde bonito */
+  color: #ff0303;
+  padding: 10px 20px;
+  font-size: 23px; /* tamaño medio */
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+
+ 
+}
+
+
+
+.home-btn i {
+  font-size: 25px; /* ícono un poco más grande */
+}
+
+/* Si quieres centrar el botón en la página */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* pantalla completa */
+}
+
+.sidebar-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 24px; // margen inferior para no pegarlo al fondo
+}
+
+
+.logout-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 32px; // controla la distancia desde el último menú
+}
+
+.cerrar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  background-color: #f6f6f6;
+  color: #ff0303;
+  padding: 10px 20px;
+  font-size: 23px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
 }
