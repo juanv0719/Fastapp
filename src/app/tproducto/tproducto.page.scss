@@ -1,3 +1,155 @@
+/* --- DARK THEME SOLO PARA PRODUCTOS Y HOME --- */
+.dark-theme-productos .sidebar,
+.dark-theme-productos .sidebar-header,
+.dark-theme-productos .sidebar-menu,
+.dark-theme-productos .sidebar-item,
+.dark-theme-productos .sidebar-submenu {
+  background: #18191a !important;
+  color: #fff !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10) !important;
+}
+.dark-theme-productos .sidebar-title,
+.dark-theme-productos .logo-sidebar {
+  color: #fff !important;
+}
+.dark-theme-productos .sidebar-icon {
+  background: #444 !important;
+}
+.dark-theme-productos .sidebar-text {
+  color: #fff !important;
+}
+.dark-theme-productos .sidebar-arrow {
+  background: #444 !important;
+  color: #fff !important;
+}
+.dark-theme-productos .submenu-item {
+  color: #fff !important;
+}
+.dark-theme-productos .cerrar-btn,
+.dark-theme-productos .menu-btn {
+  background: #18191a !important;
+  color: #fff !important;
+  border-left: 4px solid #ff4444 !important;
+}
+.dark-theme-productos .cerrar-btn i,
+.dark-theme-productos .menu-btn i {
+  color: #ff4444 !important;
+}
+/* --- FIN DARK THEME SIDEBAR --- */
+/* --- DARK THEME SUPPORT --- */
+.dark-theme-productos .custom-toolbar {
+  background: #18191a !important;
+  border-bottom: 2px solid #232526 !important;
+}
+.dark-theme-productos .toolbar-content {
+  background: transparent !important;
+}
+.dark-theme-productos .custom-menu-icon {
+  background: linear-gradient(90deg, #232526 60%, #18191a 100%) !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
+}
+.dark-theme-productos .slider-line {
+  background: #444 !important;
+}
+.dark-theme-productos .slider-dot {
+  background: #fff !important;
+  border: 2px solid #444 !important;
+}
+.dark-theme-productos .search-input {
+  background: #232526 !important;
+  color: #fff !important;
+  border: 1px solid #444 !important;
+}
+.dark-theme-productos .cart-btn {
+  background: #232526 !important;
+}
+.dark-theme-productos .cart-icon {
+  color: #fff !important;
+}
+.dark-theme-productos .productos-grid {
+  background: #18191a !important;
+}
+.dark-theme-productos .producto-card {
+  background: #232526 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
+}
+.dark-theme-productos .producto-card h2,
+.dark-theme-productos .producto-card p,
+.dark-theme-productos .producto-card .precio {
+  color: #fff !important;
+}
+.dark-theme-productos .btn-agregar {
+  background: #444 !important;
+  color: #fff !important;
+  border: 1px solid #ff4444 !important;
+}
+/* --- FIN DARK THEME SUPPORT --- */
+
+.custom-menu-icon {
+  background: linear-gradient(90deg, #ff4444 60%, #ff2222 100%);
+  border: none;
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px 0 rgba(255, 68, 68, 0.18);
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.custom-menu-icon:hover {
+  box-shadow: 0 4px 18px 0 rgba(255, 68, 68, 0.28);
+  transform: scale(1.07);
+}
+
+.menu-slider-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.slider-line {
+  width: 38px;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,0.10);
+}
+//Primer circulo de menu productos
+.slider-line:nth-child(1) .slider-dot {
+  left: 22%;
+  background: #ffffff;
+  border: 2px solid #ff4444;
+}
+//Segundo circulo de menu productos
+.slider-line:nth-child(2) .slider-dot {
+  left: 70%;
+  background: #fff;
+  border: 2px solid #ff4444;
+}
+//Tercer circulo de menu productos
+.slider-line:nth-child(3) .slider-dot {
+  left: 38%;
+  background: #fff;
+  border: 2px solid #ff4444;
+}
+
+.slider-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 8px 0 rgba(255,68,68,0.10);
+  transition: background 0.2s, border 0.2s;
+}
 ion-header, ion-toolbar {
   --background: #ff4444;
   --color: #fff;

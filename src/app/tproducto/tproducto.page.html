@@ -3,8 +3,18 @@
   <div class="statusbar-bg"></div>
   <ion-toolbar class="custom-toolbar">
     <div class="toolbar-content">
-      <button class="menu-btn" (click)="openMenu()">
-        <i class="fas fa-bars"></i>
+      <button class="menu-btn custom-menu-icon" (click)="openMenu()">
+        <span class="menu-slider-icon">
+          <span class="slider-line">
+            <span class="slider-dot"></span>
+          </span>
+          <span class="slider-line">
+            <span class="slider-dot"></span>
+          </span>
+          <span class="slider-line">
+            <span class="slider-dot"></span>
+          </span>
+        </span>
       </button>
       <input
         class="search-input"

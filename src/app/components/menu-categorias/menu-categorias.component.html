@@ -5,7 +5,7 @@
 <div class="sidebar" [class.active]="isMenuOpen">
   <div class="sidebar-header">
     <div class="sidebar-title">
-      <span class="logo-sidebar">Fast App</span>
+      <span class="logo-sidebar">Productos</span>
   
       <i class="fas fa-times close-btn" (click)="closeMenu()"></i>
       
@@ -19,16 +19,22 @@
     <div class="sidebar-menu">
       <!--Boton de inicio -->
       <div class="home-section"></div>
-       <a class="home-btn" (click)="goToHome()">
+      <div class="home-group">
+        <a class="menu-btn" (click)="goToHome()">
           <i class="fas fa-home"></i>
           <span>Inicio</span>
         </a>
+        <a class="menu-btn" (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Cerrar sesión</span>
+        </a>
+      </div>
 
     
       <ng-container *ngFor="let cat of categorias">
         <div class="sidebar-item">
           <div class="sidebar-icon">
-            <!--<i class="fas fa-cube"></i>-->
+            <i *ngIf="cat.icon" class="fas" [ngClass]="cat.icon" [style.color]="cat.nombre === 'Electricos' || cat.nombre === 'Elec.' ? '#ffb300' : '#7a1212'"></i>
           </div>
           <span class="sidebar-text">{{ cat.nombre }}</span>
           <button class="sidebar-arrow" (click)="toggleItem(cat)">
@@ -44,12 +50,7 @@
         </div>
       </ng-container>
     </div>
-    <div class="logout-container">
-      <button class="cerrar-btn" (click)="logout()">
-        <i class="fas fa-sign-out-alt"></i>
-        <span>Cerrar sesión</span>
-      </button>
-    </div>
+    <!-- Botones principales ahora tienen el mismo estilo que el menú principal -->
   </div>
 </div>
 

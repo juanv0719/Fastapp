@@ -1,3 +1,61 @@
+// Poner texto en negro de home
+
+.home-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  padding: 15px 28px;
+  color: #222;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  border-left: 4px solid transparent;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  border-radius: 0 20px 20px 0;
+  margin-bottom: 2px;
+  background: #fff;
+}
+.menu-btn i {
+  margin-right: 18px;
+  font-size: 20px;
+  color: #ff4444;
+  transition: color 0.2s;
+}
+.menu-btn:hover,
+.menu-btn:focus {
+  background: #fff0f0;
+  color: #ff4444;
+  border-left: 4px solid #ff4444;
+}
+.menu-btn:hover i,
+.menu-btn:focus i {
+  color: #d32f2f;
+}
+
+// aca acaba poner texto en negro INICIO
+.home-text {
+  color: #111 !important;
+  font-weight: 600;
+}
+
+.logout-below-home {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  position: static;
+  background: none;
+  padding-top: 0;
+  z-index: 1;
+}
 .statusbar-bg {
   position: fixed;
   top: 0;
@@ -8,13 +66,14 @@
   z-index: 2200; // Debe ser mayor que .top-header
 }
 
+// Eliminado bloque huérfano
+
 .sidebar {
   position: fixed;
   top: 25px;
   left: -100%;
   width: 260px;
-  max-height: calc(100vh - 25px);
-  height: auto;
+  height: calc(100vh - 25px);
   background-color: #ffffff;
   transition: 0.3s;
   z-index: 2200;
@@ -23,9 +82,10 @@
   border-bottom-right-radius: 18px;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
+
+// Eliminado bloque huérfano
 
 .sidebar-content {
   flex: 1 1 auto;
@@ -33,6 +93,9 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
   padding-bottom: 24px;
 }
 
@@ -261,12 +324,9 @@
 }
 
 
-.logout-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 32px; // controla la distancia desde el último menú
-}
+// Eliminado bloque huérfano
+
+// Eliminado logout-container, ya no se usa
 
 .cerrar-btn {
   display: inline-flex;

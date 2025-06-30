@@ -1,3 +1,15 @@
+/* --- ERRORES SIEMPRE ROJOS --- */
+/* --- ERRORES SIEMPRE ROJOS --- */
+.error-text {
+  color: #d32f2f !important;
+  /* Forzar color rojo incluso en modo oscuro o cualquier tema */
+}
+body.dark-theme .error-text,
+body.dark-theme-productos .error-text {
+  color: #d32f2f !important;
+}
+/* --- FIN ERRORES SIEMPRE ROJOS --- */
+/* --- FIN ERRORES SIEMPRE ROJOS --- */
 body, html {
   width: 100vw;
   height: 100vh;
