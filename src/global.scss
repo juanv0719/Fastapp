@@ -1,3 +1,155 @@
+body.dark-theme .producto-card {
+  /* Fondo de la tarjeta en modo oscuro */
+  background: #232526 !important;
+  /* Borde y radio de la tarjeta */
+  border: 1px solid #ffffff !important;
+  border-radius: 8px !important;
+  /* Espaciado interno */
+  padding: 10px !important;
+  /* Sombra para resaltar la tarjeta */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  /* Color de texto más claro para mejor contraste */
+  color: #ffffff !important;
+  /* Tamaño y peso del texto */
+  font-size: 16px !important;
+  font-weight: bold !important;
+  /* Alineación del texto */
+  text-align: left !important;
+  /* Margen exterior */
+  margin: 0 !important;
+}
+body.dark-theme .producto-card * {
+  color: #fff !important;
+}
+body.dark-theme .producto-card .precio {
+  font-size: 18px !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  margin-bottom: 8px !important;
+  text-align: left !important;
+}
+body.dark-theme .sidebar-submenu.active {
+  /* Altura máxima para todos los submenús (ajusta según la cantidad de ítems) */
+  max-height: 300px;
+  /* Fondo uniforme para todos los submenús */
+  background: #232526 !important;
+  /* Bordes redondeados solo abajo para integrarse con el menú */
+  border-radius: 0 0 18px 18px;
+  /* Sombra sutil para destacar el submenú */
+  box-shadow: #232526 !important;
+  /* Espaciado interno para que los ítems no queden pegados */
+  padding: 12px 18px 12px 24px;
+  /* Márgenes para separación visual */
+  margin-top: 0;
+  margin-bottom: 12px;
+  /* Posicionamiento y superposición */
+  position: relative;
+  z-index: 1;
+  /* Scroll si hay muchos ítems, pero con barra discreta */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ff4444 #232526;
+}
+body.dark-theme .submenu-item{
+  font-size: 18px;
+    color: #ffffff;
+}
+/* para descripcion de productos
+ body.dark-theme .main-content p {
+  color: #ffffff !important;
+  background: #5b5555  !important;
+  border-left: 4px solid #5b5555 !important;
+}
+ */
+
+
+//
+// Estilos solo para modo oscuro productos/menu
+body.dark-theme .sidebar-menu {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  padding: 18px 0 0 0 !important;
+  background-color: #232526 !important;
+  justify-content: flex-start !important;
+}
+
+body.dark-theme .sidebar-text {
+  flex: 1 !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  color: #ffffff !important;
+  margin-left: 4px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Botón general de menú hamburguesa */
+body.dark-theme .menu-btn {
+  display: flex !important;
+  align-items: center !important;
+  padding: 15px 28px !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  border-left: 4px solid transparent !important;
+  transition: background 0.2s, border-color 0.2s, color 0.2s !important;
+  border-radius: 0 20px 20px 0 !important;
+  margin-bottom: 2px !important;
+  background: #ee1414 !important;
+}
+
+body.dark-theme .btn-inicio {
+  background: #232526 !important;
+  color: #fff !important;
+}
+
+body.dark-theme .btn-cerrar-sesion {
+  background: #232526 !important;
+  color: #fff !important;
+}
+
+/* Estilo general para headers y toolbars (botones de inicio y cerrar sesión) */
+body.dark-theme ion-header,
+body.dark-theme ion-toolbar {
+  --background: #ee1414 !important;
+  --color: #fff !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+  top: 10px !important;
+  height: 60px !important;
+}
+
+/* Estilo especial para el menú hamburguesa (barra roja) */
+body.dark-theme .menu-hamburguesa ion-toolbar {
+  --background: linear-gradient(90deg, #ff4444 60%, #d32f2f 100%) !important;
+  --color: #fff !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+  top: 10px !important;
+  height: 60px !important;
+}
+
+body.dark-theme ion-content {
+  --background: #232526 !important;
+}
+
+/*ion-header[_ngcontent-ng-c1204273611], ion-toolbar[_ngcontent-ng-c1204273611] {
+    color: #333;
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;#232526 !important
+    text-align: left;
+}*/
+
+
+
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -113,8 +265,7 @@ body.dark-theme .main-content h1 {
   color: #ff4444 !important;
 }
 
-body.dark-theme .main-content p {
-  color: #000000 !important;
-  background: #ffffff !important;
-  border-left: 4px solid #ffffff !important;
-}
+
+
+
+

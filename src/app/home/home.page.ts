@@ -17,9 +17,7 @@ export class HomePage implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // Apply saved theme preference on initialization
-    this.isDarkTheme = localStorage.getItem('darkTheme') === 'true';
-    this.applyTheme();
+    // El modo oscuro global se gestiona en app.component.ts
     this.setStatusBar();
   }
 
@@ -32,13 +30,7 @@ export class HomePage implements OnInit {
   }
 
   toggleTheme() {
-    this.isDarkTheme = !this.isDarkTheme;
-    this.applyTheme();
-    localStorage.setItem('darkTheme', this.isDarkTheme.toString());
-  }
-
-  private applyTheme() {
-    document.body.classList.toggle('dark-theme', this.isDarkTheme);
+    // El modo oscuro global se gestiona en app.component.ts
   }
 
   async setStatusBar() {

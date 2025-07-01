@@ -1,85 +1,85 @@
 /* --- DARK THEME SOLO PARA PRODUCTOS Y HOME --- */
-.dark-theme-productos .sidebar,
-.dark-theme-productos .sidebar-header,
-.dark-theme-productos .sidebar-menu,
-.dark-theme-productos .sidebar-item,
-.dark-theme-productos .sidebar-submenu {
+body.dark-theme .sidebar,
+body.dark-theme .sidebar-header,
+body.dark-theme .sidebar-menu,
+body.dark-theme .sidebar-item,
+body.dark-theme .sidebar-submenu {
   background: #18191a !important;
   color: #fff !important;
   box-shadow: 0 1px 2px rgba(0,0,0,0.10) !important;
 }
-.dark-theme-productos .sidebar-title,
-.dark-theme-productos .logo-sidebar {
+body.dark-theme .sidebar-title,
+body.dark-theme .logo-sidebar {
   color: #fff !important;
 }
-.dark-theme-productos .sidebar-icon {
+body.dark-theme .sidebar-icon {
   background: #444 !important;
 }
-.dark-theme-productos .sidebar-text {
+body.dark-theme .sidebar-text {
   color: #fff !important;
 }
-.dark-theme-productos .sidebar-arrow {
+body.dark-theme .sidebar-arrow {
   background: #444 !important;
   color: #fff !important;
 }
-.dark-theme-productos .submenu-item {
+body.dark-theme .submenu-item {
   color: #fff !important;
 }
-.dark-theme-productos .cerrar-btn,
-.dark-theme-productos .menu-btn {
+body.dark-theme .cerrar-btn,
+body.dark-theme .menu-btn {
   background: #18191a !important;
   color: #fff !important;
   border-left: 4px solid #ff4444 !important;
 }
-.dark-theme-productos .cerrar-btn i,
-.dark-theme-productos .menu-btn i {
+body.dark-theme .cerrar-btn i,
+body.dark-theme .menu-btn i {
   color: #ff4444 !important;
 }
 /* --- FIN DARK THEME SIDEBAR --- */
 /* --- DARK THEME SUPPORT --- */
-.dark-theme-productos .custom-toolbar {
+body.dark-theme .custom-toolbar {
   background: #18191a !important;
   border-bottom: 2px solid #232526 !important;
 }
-.dark-theme-productos .toolbar-content {
+body.dark-theme .toolbar-content {
   background: transparent !important;
 }
-.dark-theme-productos .custom-menu-icon {
+body.dark-theme .custom-menu-icon {
   background: linear-gradient(90deg, #232526 60%, #18191a 100%) !important;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
 }
-.dark-theme-productos .slider-line {
+body.dark-theme .slider-line {
   background: #444 !important;
 }
-.dark-theme-productos .slider-dot {
+body.dark-theme .slider-dot {
   background: #fff !important;
   border: 2px solid #444 !important;
 }
-.dark-theme-productos .search-input {
+body.dark-theme .search-input {
   background: #232526 !important;
   color: #fff !important;
   border: 1px solid #444 !important;
 }
-.dark-theme-productos .cart-btn {
+body.dark-theme .cart-btn {
   background: #232526 !important;
 }
-.dark-theme-productos .cart-icon {
+body.dark-theme .cart-icon {
   color: #fff !important;
 }
-.dark-theme-productos .productos-grid {
+body.dark-theme .productos-grid {
   background: #18191a !important;
 }
-.dark-theme-productos .producto-card {
+body.dark-theme .producto-card {
   background: #232526 !important;
   color: #fff !important;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
 }
-.dark-theme-productos .producto-card h2,
-.dark-theme-productos .producto-card p,
-.dark-theme-productos .producto-card .precio {
+body.dark-theme .producto-card h2,
+body.dark-theme .producto-card p,
+body.dark-theme .producto-card .precio {
   color: #fff !important;
 }
-.dark-theme-productos .btn-agregar {
+body.dark-theme .btn-agregar {
   background: #444 !important;
   color: #fff !important;
   border: 1px solid #ff4444 !important;
@@ -320,6 +320,15 @@ ion-content {
   .btn-agregar i {
     font-size: 16px;
   }
+}
+
+/*
+ * Corrigiendo el color de texto en .producto-card para modo oscuro.
+ * El color global debe ser blanco, pero si algún h2, p, o .precio tiene color heredado o forzado en otro lado,
+ * aquí lo forzamos a blanco para todos los textos dentro de la tarjeta en dark mode.
+ */
+body.dark-theme .producto-card * {
+  color: #fff !important;
 }
 
 .menu-btn {

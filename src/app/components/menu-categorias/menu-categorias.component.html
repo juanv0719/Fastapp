@@ -20,21 +20,21 @@
       <!--Boton de inicio -->
       <div class="home-section"></div>
       <div class="home-group">
-        <a class="menu-btn" (click)="goToHome()">
+        <a class="menu-btn btn-inicio" (click)="goToHome()">
           <i class="fas fa-home"></i>
           <span>Inicio</span>
         </a>
-        <a class="menu-btn" (click)="logout()">
+        <a class="menu-btn btn-cerrar-sesion" (click)="logout()">
           <i class="fas fa-sign-out-alt"></i>
           <span>Cerrar sesión</span>
         </a>
       </div>
 
-    
+      <!-- Aca estan los botones mas su color de cada icono en mi menu productos , tapas y chapas y demas.. -->
       <ng-container *ngFor="let cat of categorias">
         <div class="sidebar-item">
           <div class="sidebar-icon">
-            <i *ngIf="cat.icon" class="fas" [ngClass]="cat.icon" [style.color]="cat.nombre === 'Electricos' || cat.nombre === 'Elec.' ? '#ffb300' : '#7a1212'"></i>
+            <i *ngIf="cat.icon" class="fas" [ngClass]="cat.icon" [style.color]="cat.nombre === 'Electricos' || cat.nombre === 'Elec.' ? '#ff4444' : '#ff4444'"></i>
           </div>
           <span class="sidebar-text">{{ cat.nombre }}</span>
           <button class="sidebar-arrow" (click)="toggleItem(cat)">

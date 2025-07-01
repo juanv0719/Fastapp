@@ -14,25 +14,11 @@ import { Router } from '@angular/router';
 export class MenuCategoriasComponent implements OnInit {
   isDarkTheme = false;
   ngOnInit(): void {
-    this.isDarkTheme = localStorage.getItem('darkTheme') === 'true';
-    this.applyTheme();
+    // El modo oscuro global se gestiona en app.component.ts
   }
 
   toggleTheme(): void {
-    this.isDarkTheme = !this.isDarkTheme;
-    this.applyTheme();
-    localStorage.setItem('darkTheme', this.isDarkTheme.toString());
-  }
-
-  private applyTheme(): void {
-    // Aplica dark-theme-productos solo en rutas /home o /tproducto
-    const url = window.location.pathname;
-    const body = document.body;
-    if (this.isDarkTheme && (url.startsWith('/home') || url.startsWith('/tproducto'))) {
-      body.classList.add('dark-theme-productos');
-    } else {
-      body.classList.remove('dark-theme-productos');
-    }
+    // El modo oscuro global se gestiona en app.component.ts
   }
   @Input() categorias: CategoriaMenu[] = [];
   @Input() isMenuOpen = false;

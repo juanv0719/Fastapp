@@ -24,6 +24,18 @@ export class AppComponent {
       if (!this.showMenu) {
         this.isMenuOpen = false;
       }
+      // Modo oscuro global: solo quitar en login, register y mensajes
+      if (
+        currentUrl.startsWith('/login') ||
+        currentUrl.startsWith('/register') ||
+        currentUrl.includes('modal') ||
+        currentUrl.includes('mensaje')
+      ) {
+        document.body.classList.remove('dark-theme');
+      } else {
+        const isDark = localStorage.getItem('darkTheme') === 'true';
+        document.body.classList.toggle('dark-theme', isDark);
+      }
     });
   }
 
