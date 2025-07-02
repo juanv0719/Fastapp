@@ -218,16 +218,23 @@ body.dark-theme .header-content i:hover {
 
 body.dark-theme .menu {
   background-color: #232526 !important;
+  /* No cambiar display, align-items ni gap aquí */
 }
-
+/* boton de carrito en productos 
 body.dark-theme .menu a {
-  color: #fff !important;
-  background-color: #232526 !important;
-  border-left: 4px solid transparent !important;
+    font-size: 22px !important;
+    cursor: pointer !important ;
+    color: #ffffff !important ;
+    transition: color 0.2s !important;
+}*/
+body.dark-theme .menu a {
+  color: #ffffff !important;
+  /* No cambiar font-size, padding ni border-radius aquí */
 }
 
 body.dark-theme .menu a i {
   color: #ff4444 !important;
+  /* No cambiar font-size aquí */
 }
 
 body.dark-theme .menu a:hover,
@@ -245,16 +252,20 @@ body.dark-theme .menu a:focus i {
 body.dark-theme .top-header {
   background: linear-gradient(90deg, #f70000 60%, #d32f2f 100%) !important;
   border-bottom: 2px solid #ff4444 !important;
+  /* No cambiar height, padding ni display aquí */
 }
 
 body.dark-theme .logo {
   color: #ffffff !important;
   text-shadow: 0 2px 8px #2d2323 !important;
+  /* No cambiar font-size ni margin aquí */
 }
 
 body.dark-theme .menu-icon,
 body.dark-theme .cart-icon {
-  color: #fdfdfd !important;
+  color: #ffffff !important;
+  background: #ee1414 !important;
+  /* No cambiar font-size ni margin aquí */
 }
 
 body.dark-theme .main-content {
