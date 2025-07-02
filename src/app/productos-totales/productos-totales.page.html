@@ -1,3 +1,4 @@
+<!-- productos-totales.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -10,75 +11,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
   <ion-grid>
-
-    <!-- 🔶 SECCIÓN DE PRODUCTOS FAVORITOS -->
     <ion-row>
-      <ng-container *ngFor="let producto of productos">
-        <ion-col size="12" *ngIf="producto.favorito">
-          <ion-card class="product-card favorito">
-            <div class="encabezado-card">
-              <p class="codigo">COD: {{ producto.codigo }}</p>
-              <!-- 🔥 ÍCONO DE LLAMA -->
-              <ion-icon
-                name="flame"
-                class="icono-llama"
-                (click)="marcarFavorito(producto)"
-              ></ion-icon>
-            </div>
+      <ion-col
+        size="6"
+        size-sm="5"
+        size-md="4"
+        size-lg="3"
+        *ngFor="let producto of productos; let i = index"
+      >
+        <ion-card
+          #productCard
+          class="product-card"
+          [ngClass]="{ 'intercalado-a': i % 2 === 0, 'intercalado-b': i % 2 !== 0 }"
+        >
+          <div class="arriba" *ngIf="i % 2 !== 0">
+            <p class="codigo">COD: {{ producto.codigo }}</p>
+            <p class="precio">S/. {{ producto.precio.toFixed(2) }}</p>
+          </div>
 
-            <img [src]="producto.imagen" *ngIf="producto.imagen" class="img-producto" />
+          <img [src]="producto.imagen" alt="Producto" />
 
-            <ion-card-content>
-              <p class="titulo">{{ producto.titulo }}</p>
+          <ion-card-content>
+            <p class="titulo">{{ producto.titulo }}</p>
+          </ion-card-content>
 
-              <p class="precio" [class.con-descuento]="producto.descuento">
-                <span *ngIf="producto.descuento" class="tachado">
-                  ${{ producto.precioOriginal }}
-                </span>
-                <span [ngClass]="{ 'precio-oferta': producto.descuento, 'precio-normal': !producto.descuento }">
-                  ${{ producto.precio }}
-                </span>
-              </p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ng-container>
+          <div class="abajo" *ngIf="i % 2 === 0">
+            <p class="codigo">COD: {{ producto.codigo }}</p>
+            <p class="precio">S/. {{ producto.precio.toFixed(2) }}</p>
+          </div>
+        </ion-card>
+      </ion-col>
     </ion-row>
-
-    <!-- 🔷 SECCIÓN DE PRODUCTOS NORMALES -->
-    <ion-row>
-      <ng-container *ngFor="let producto of productos">
-        <ion-col size="6" *ngIf="!producto.favorito">
-          <ion-card class="product-card">
-            <div class="encabezado-card">
-              <p class="codigo">COD: {{ producto.codigo }}</p>
-              <ion-icon
-                name="star-outline"
-                class="estrella"
-                (click)="marcarFavorito(producto)"
-              ></ion-icon>
-            </div>
-
-            <img [src]="producto.imagen" *ngIf="producto.imagen" class="img-producto" />
-
-            <ion-card-content>
-              <p class="titulo">{{ producto.titulo }}</p>
-
-              <p class="precio" [class.con-descuento]="producto.descuento">
-                <span *ngIf="producto.descuento" class="tachado">
-                  ${{ producto.precioOriginal }}
-                </span>
-                <span [ngClass]="{ 'precio-oferta': producto.descuento, 'precio-normal': !producto.descuento }">
-                  ${{ producto.precio }}
-                </span>
-              </p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ng-container>
-    </ion-row>
-
   </ion-grid>
 </ion-content>
