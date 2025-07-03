@@ -31,6 +31,9 @@ body {
   align-items: center;
   padding: 0 20px;
   border-bottom: 2px solid #ff4444;
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 /* Sidebar */
 .sidebar {
@@ -161,11 +164,12 @@ body {
   max-width: 430px;
   margin: 0 auto;
   height: 100%;
-  background-color: #ffffff; // donde dice bienvenido
+  background-color: #ff4444; // donde dice bienvenido
   box-shadow: 0 4px 32px 0 rgba(255, 0, 0, 0.07),
     0 1.5px 6px 0 rgba(0, 0, 0, 0.03);
   border-radius: 0;
   overflow: hidden;
+   // Asegura que el contenedor esté por encima de otros elementos
   padding-top: 94px; /* Espacio para statusbar y header */
 }
 
@@ -299,4 +303,180 @@ body.dark-theme .main-content p {
   color: #fff;
   background: #2d2323;
   border-left: 4px solid #ff4444;
+}
+
+/*
+ * Eliminar separación blanca entre el header y la imagen de fondo
+ */
+
+.fondo-fast-wrapper {
+  position: relative;
+  width: 100%;
+  height: 140px; // Puedes ajustar el alto según tu diseño
+  background-color: #ff4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fondo-fast-img {
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2; // Ajusta si quieres más o menos visible la imagen
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/*
+ * Imagen de fondo arriba, ocupa todo el ancho y se ve completa
+ */
+.home-fondo-img-wrapper {
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.home-fondo-img {
+  width: 100vw;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+    margin-top: 85px;// coloca mas abajo las imagenes
+}
+
+/*
+ * Contenedor blanco debajo de la imagen
+ */
+.home-blanco {
+  background: #fff;
+  border-radius: 0 0 24px 24px;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.06);
+  margin-top: -4px; /* para pegarlo a la imagen */
+  padding: 32px 16px 24px 16px;
+  min-height: 300px;
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+    margin-top: 0px;
+}
+
+ion-content,
+.container.home-blanco {
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  background: #ff4444;
+}
+
+/* Fondo con imagen */
+.home-fondo-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// Elimina el espacio entre el contenido y el footer, el footer será el fin de la página
+
+.container.home-blanco {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  max-width: 430px;
+  background: #fff;
+  border-radius: 0 0 24px 24px;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.06);
+  margin: -24px auto 0 auto;
+  padding: 24px 16px 0 16px;
+  min-height: 0;
+  height: 75%; // Ajusta la altura para que ocupe el espacio restante
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+
+// Elimina el margen inferior para pegar el footer
+.quienes-somos-section {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+  margin-bottom: 80px;
+
+  h3 {
+    color: #d32f2f;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: #000000;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 18px; /* Menos espacio entre párrafos */
+  }
+
+  .vision {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0; /* Elimina espacio extra debajo de visión */
+
+    img {
+      width: 60px;
+      margin-bottom: 8px;
+    }
+
+    h4 {
+      color: #d32f2f;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 19px;
+      color: #000000;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Elimina el padding extra para que el footer quede pegado al final
+.footer-text {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  padding: 8px 4px 8px 4px;
+  background: #fff;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
 }
