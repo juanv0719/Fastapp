@@ -104,7 +104,7 @@ En el archivo `package.json` se definen los siguientes scripts:
 ### 1. Generar la nueva página
 
 ```bash
-ionic generate page nombre-de-la-pagina
+CODIGO:     ionic generate page nombre-de-la-pagina
 ```
 
 Esto creará una nueva carpeta en `src/app/nombre-de-la-pagina` con los archivos necesarios (HTML, SCSS, TypeScript).
