@@ -1,3 +1,11 @@
+body.dark-theme .footer-text {
+  background: #232526 !important;
+  color: #fff !important;
+}
+body.dark-theme .quienes-somos-section p,
+body.dark-theme .quienes-somos-section .vision p {
+  color: #fff !important;
+}
 body.dark-theme .producto-card {
   /* Fondo de la tarjeta en modo oscuro */
   background: #232526 !important;
