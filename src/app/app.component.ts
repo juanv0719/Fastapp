@@ -19,8 +19,8 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe(() => {
       const currentUrl = this.router.url;
-      // Mostrar menú solo en home
-      this.showMenu = currentUrl.startsWith('/home');
+      // Mostrar menú solo en home y perfil
+      this.showMenu = currentUrl.startsWith('/home') || currentUrl.startsWith('/perfil');
       if (!this.showMenu) {
         this.isMenuOpen = false;
       }

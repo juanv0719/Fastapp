@@ -1,3 +1,8 @@
+/* Fondo personalizado para la página de perfil */
+.perfil-fondo {
+  background: linear-gradient(to bottom, #fff 0%, #fff 40%, #ffd6d6 40%, #ffd6d6 100%) !important;
+  min-height: 100vh;
+}
 body.dark-theme .footer-text {
   background: #232526 !important;
   color: #fff !important;
