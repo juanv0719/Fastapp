@@ -19,7 +19,7 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe(() => {
       const currentUrl = this.router.url;
-      // Mostrar menú solo en home y perfil
+      // Mostrar menú solo en home y perfil el modo oscuro
       this.showMenu = currentUrl.startsWith('/home') || currentUrl.startsWith('/perfil');
       if (!this.showMenu) {
         this.isMenuOpen = false;

@@ -83,6 +83,8 @@ export class LoginPage implements OnInit {
       const querySnapshot = await getDocs(q);
 
       if (!querySnapshot.empty) {
+        // Guardar RUC en localStorage para identificar usuario en perfil
+        localStorage.setItem('ruc', this.ruc);
         this.mostrarBienvenida();
       } else {
         alert('RUC o Razón Social incorrectos');

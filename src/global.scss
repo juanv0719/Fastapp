@@ -289,7 +289,43 @@ body.dark-theme .main-content h1 {
   color: #ff4444 !important;
 }
 
+// perfil modo oscuro
+body.dark-theme .perfil-fondo {
+  --background: #2d2d2d !important;
+}
+body.dark-theme .caja1 {
+  background: #e11d1d !important;
+  color: #f5f5f5 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
 
+body.dark-theme .perfil-caja,
+body.dark-theme .perfil-caja-blanca {
+  background: #232323 !important;
+  color: #f5f5f5 !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+body.dark-theme .perfil-caja-blancasuperior {
+  background: #2d2d2d !important;
+}
+body.dark-theme .perfil-item {
+  background: #232323 !important;
+}
+body.dark-theme .perfil-texto,
+body.dark-theme .perfil-input {
+  color: #f5f5f5 !important;
+  background: #232323 !important;
+  border-color: #444 !important;
+}
+body.dark-theme .perfil-editar {
+  background: #232323 !important;
+  color: #ff4444 !important;
+  border-color: #ff4444 !important;
+}
+body.dark-theme .success-modal-content {
+  background: #232323 !important;
+  color: #00c853 !important;
+}
 
 
 

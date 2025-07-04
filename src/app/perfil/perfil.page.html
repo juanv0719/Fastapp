@@ -1,35 +1,53 @@
 <ion-content class="perfil-fondo">
+  <!-- Ventana de éxito -->
+  <div *ngIf="showSuccess" class="success-modal">
+    <div class="success-modal-content">
+      <div class="success-check">
+        <svg width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" fill="#e6fff2" stroke="#00c853" stroke-width="3" />
+          <polyline points="18,32 27,41 43,22" fill="none" stroke="#00c853" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <div class="success-text">¡Cambios guardados con éxito!</div>
+    </div>
+  </div>
  <div class="caja1"></div>
 
   <div class="perfil-caja">
     <img src="assets/usuario.png" alt="Usuario" class="perfil-foto" />
-    <button class="perfil-editar">
+    <button class="perfil-editar" (click)="isEditing ? onSave() : onEdit()">
       <img src="assets/editar.png" alt="Editar" />
-      Editar
+      {{ isEditing ? 'Guardar' : 'Editar' }}
     </button>
   </div>
       <div class="perfil-caja-blancasuperior">
       <div class="perfil-caja-blanca">
         <div class="perfil-item">
           <img src="assets/empresa.png" alt="RUC" class="perfil-icono" />
-          <span class="perfil-texto">RUC</span>
+          <span class="perfil-texto">RUC:</span>
+          <span class="perfil-texto">{{ ruc }}</span>
         </div>
         <div class="perfil-item">
           <img src="assets/razonS.png" alt="Razon social" class="perfil-icono" />
-          <span class="perfil-texto">Razon social</span>
+          <span class="perfil-texto">Razón social:</span>
+          <span class="perfil-texto">{{ razonSocial }}</span>
         </div>
         <div class="perfil-item">
           <img src="assets/mensaje.png" alt="Correo" class="perfil-icono" />
-          <span class="perfil-texto">Correo</span>
+          <span class="perfil-texto">Correo:</span>
+          <input *ngIf="isEditing" class="perfil-input" type="email" [value]="correo" (input)="onCorreoChange($event)" />
+          <span *ngIf="!isEditing" class="perfil-texto">{{ correo }}</span>
         </div>
         <div class="perfil-item">
           <img src="assets/telefono.png" alt="Número de Telefono" class="perfil-icono" />
-          <span class="perfil-texto">Número de Telefono</span>
+          <span class="perfil-texto">Número de Teléfono:</span>
+          <input *ngIf="isEditing" class="perfil-input" type="tel" [value]="telefono" (input)="onTelefonoChange($event)" />
+          <span *ngIf="!isEditing" class="perfil-texto">{{ telefono }}</span>
         </div>
       </div>
       <div class="caja2-contenedor">
-  <div class="caja2"></div>
-</div>
+        <div class="caja2"></div>
+      </div>
     </div>
 
 
