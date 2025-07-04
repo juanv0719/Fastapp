@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,30 +13,53 @@ import { Observable } from 'rxjs';
   templateUrl: './tproducto.page.html',
   styleUrls: ['./tproducto.page.scss'],
 })
-export class TproductoPage implements OnInit {
+export class TproductoPage implements OnInit, AfterViewInit {
   isMenuOpen = false;
   categorias$!: Observable<CategoriaMenu[]>;
 
   productos = [
     {
-      nombre: 'Bujía',
-      descripcion: 'Descripcion de que tipo de bujia',
-      precio: 2.50,
-      imagen: 'assets/bujia.png'
+      nombre: 'Tapa Gasolina',
+      descripcion: 'Tapa con rosca y llave para depósitos estándar.',
+      precio: 35.5,
+      codigo: 'TGC-02',
+      imagen: 'assets/tapagasolinaR-sinllave.jpeg'
     },
     {
-      nombre: 'Bujía',
-      descripcion: 'Descripcion de que tipo de bujia',
-      precio: 2.50,
-      imagen: 'assets/bujia.png'
+      nombre: 'Tapón Radiador',
+      descripcion: 'Tapón de alta presión para radiadores modernos.',
+      precio: 25.0,
+      codigo: 'TPR-03',
+      imagen: 'assets/bujia.jpeg'
+    },
+    {
+      nombre: 'Tapa de Aceite',
+      descripcion: 'Tapa roscada para depósitos de aceite.',
+      precio: 18.5,
+      codigo: 'TAC-01',
+      imagen: 'assets/bujia.jpeg'
+    },
+    {
+      nombre: 'Filtro de Aire',
+      descripcion: 'Filtro estándar para motores de 1.6 a 2.0L.',
+      precio: 45.0,
+      codigo: 'FDA-08',
+      imagen: 'assets/bujia.jpeg'
     }
-    // otros productos...
+    // Puedes seguir agregando más productos...
   ];
 
   constructor(private menuService: MenuService) {}
 
   ngOnInit() {
     this.categorias$ = this.menuService.categorias$;
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.producto-card');
+      cards.forEach((card) => card.classList.add('visible'));
+    }, 100);
   }
 
   openMenu() {

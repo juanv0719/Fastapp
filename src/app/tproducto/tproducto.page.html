@@ -33,14 +33,36 @@
 
 <ion-content>
   <div class="productos-grid">
-    <div class="producto-card" *ngFor="let producto of productos">
-      <img [src]="producto.imagen" alt="Producto" />
+    <div
+      class="producto-card"
+      *ngFor="let producto of productos; let i = index"
+      [ngClass]="{
+        'intercalado-a': i % 2 === 0,
+        'intercalado-b': i % 2 !== 0
+      }"
+    >
+      <div class="card-info-superior" *ngIf="i % 2 !== 0">
+        <p class="codigo">COD: {{ producto.codigo }}</p>
+        <p class="precio-top">S/. {{ producto.precio.toFixed(2) }}</p>
+      </div>
+
+      <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
+
       <h2>{{ producto.nombre }}</h2>
       <p>{{ producto.descripcion }}</p>
-      <div class="precio">s/. {{ producto.precio }}</div>
+
+      <div class="precio">
+        S/. {{ producto.precio.toFixed(2) }}
+      </div>
+
       <button class="btn-agregar">
         Agregar <i class="fas fa-shopping-cart"></i>
       </button>
+
+      <div class="card-info-inferior" *ngIf="i % 2 === 0">
+        <p class="codigo">COD: {{ producto.codigo }}</p>
+        <p class="precio-top">S/. {{ producto.precio.toFixed(2) }}</p>
+      </div>
     </div>
   </div>
 </ion-content>
