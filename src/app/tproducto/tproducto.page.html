@@ -22,6 +22,7 @@
           class="search-input"
           type="text"
           placeholder="BUSCAR PRODUCTOS"
+          (input)="onBuscarProductos($event)"
         />
         <i class="fas fa-search search-icon"></i>
       </div>
@@ -33,37 +34,45 @@
 
 <ion-content>
   <div class="productos-grid">
-    <div
-      class="producto-card"
-      *ngFor="let producto of productos; let i = index"
-      [ngClass]="{
-        'intercalado-a': i % 2 === 0,
-        'intercalado-b': i % 2 !== 0
-      }"
-    >
-      <div class="card-info-superior" *ngIf="i % 2 !== 0">
-        <p class="codigo">COD: {{ producto.codigo }}</p>
-        <p class="precio-top">S/. {{ producto.precio.toFixed(2) }}</p>
+    <ng-container *ngIf="productosFiltrados.length > 0; else sinResultados">
+      <div
+        class="producto-card"
+        *ngFor="let producto of productosFiltrados; let i = index"
+        [ngClass]="{
+          'intercalado-a': i % 2 === 0,
+          'intercalado-b': i % 2 !== 0
+        }"
+      >
+        <div class="card-info-superior" *ngIf="i % 2 !== 0">
+          <p class="codigo">COD: {{ producto.codigo }}</p>
+          <p class="precio-top">S/. {{ producto.precio.toFixed(2) }}</p>
+        </div>
+
+        <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
+
+        <h2>{{ producto.nombre }}</h2>
+        <p>{{ producto.descripcion }}</p>
+
+        <div class="precio">
+          S/. {{ producto.precio.toFixed(2) }}
+        </div>
+
+        <button class="btn-agregar">
+          Agregar <i class="fas fa-shopping-cart"></i>
+        </button>
+
+        <div class="card-info-inferior" *ngIf="i % 2 === 0">
+          <p class="codigo">COD: {{ producto.codigo }}</p>
+          <p class="precio-top">S/. {{ producto.precio.toFixed(2) }}</p>
+        </div>
       </div>
-
-      <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
-
-      <h2>{{ producto.nombre }}</h2>
-      <p>{{ producto.descripcion }}</p>
-
-      <div class="precio">
-        S/. {{ producto.precio.toFixed(2) }}
+    </ng-container>
+    <ng-template #sinResultados>
+      <div class="no-results">
+        <i class="fas fa-box-open"></i>
+        <p>No se encontraron productos.</p>
       </div>
-
-      <button class="btn-agregar">
-        Agregar <i class="fas fa-shopping-cart"></i>
-      </button>
-
-      <div class="card-info-inferior" *ngIf="i % 2 === 0">
-        <p class="codigo">COD: {{ producto.codigo }}</p>
-        <p class="precio-top">S/. {{ producto.precio.toFixed(2) }}</p>
-      </div>
-    </div>
+    </ng-template>
   </div>
 </ion-content>
 
