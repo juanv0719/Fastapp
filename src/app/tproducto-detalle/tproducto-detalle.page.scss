@@ -1,0 +1,149 @@
+// Forzar color de texto oscuro en el scroll interno de Ionic
+.inner-scroll {
+  color: #040404 !important;
+}
+
+
+ion-content {
+  --background: #fff !important;
+  background: #fff !important;
+  color: #222;
+}
+
+.detalle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 32px 0;
+  background: #fff;
+}
+
+.detalle-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+.detalle-img img {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
+}
+
+.detalle-marca {
+  text-align: right;
+  width: 90%;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #222;
+}
+.detalle-titulo {
+  text-align: right;
+  width: 90%;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 8px;
+}
+.detalle-precio {
+  color: #e50012;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: right;
+  width: 90%;
+  margin-bottom: 0;
+}
+.detalle-codigo {
+  text-align: right;
+  width: 90%;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.cantidad-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 0;
+}
+.cantidad-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  background: #fff;
+  color: #444;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.cantidad-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.cantidad-num {
+  font-size: 1.2rem;
+  font-weight: 500;
+  min-width: 24px;
+  text-align: center;
+  color : #222;
+}
+.cantidad-max {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+.detalle-fichas {
+  display: flex;
+  gap: 12px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 18px;
+}
+.ficha-col {
+  flex: 1;
+  background: #ededed;
+  border-radius: 8px;
+  padding: 0 0 12px 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.ficha-header {
+  background: #000000;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+}
+.ficha-item {
+  background: #ededed;
+  border-bottom: 1px solid #d2d2d2;
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: #444;
+}
+.ficha-item:last-child {
+  border-bottom: none;
+}
+.ficha-desc {
+  background: #ededed;
+  padding: 12px;
+  font-size: 1rem;
+  color: #444;
+  border-radius: 0 0 8px 8px;
+  min-height: 80px;
+}

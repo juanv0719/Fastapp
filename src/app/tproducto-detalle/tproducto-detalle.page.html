@@ -1,0 +1,45 @@
+
+<div class="statusbar-bg"></div>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="detalle-container" *ngIf="producto; else noProducto">
+    <div class="detalle-img">
+      <img [src]="producto.imagen" [alt]="producto.titulo" />
+    </div>
+    <div class="detalle-marca">{{ producto.marca }}</div>
+    <div class="detalle-titulo">{{ producto.titulo }}</div>
+    <div class="detalle-precio">S/. {{ producto.precio | number:'1.2-2' }}</div>
+    <div class="detalle-codigo">COD: {{ producto.codigo }}</div>
+
+    <div class="cantidad-row">
+      <button class="cantidad-btn" (click)="cambiarCantidad(-1)" [disabled]="cantidad<=1">-</button>
+      <span class="cantidad-num">{{ cantidad }}</span>
+      <button class="cantidad-btn" (click)="cambiarCantidad(1)" [disabled]="cantidad>=99">+</button>
+    </div>
+    <div class="cantidad-max">Maximo 99 unidades</div>
+
+    <div class="detalle-fichas">
+      <div class="ficha-col">
+        <div class="ficha-header">Ficha tecnica</div>
+        <div class="ficha-item" *ngFor="let item of producto.ficha">
+          {{ item.label }}: {{ item.value }}
+        </div>
+      </div>
+      <div class="ficha-col">
+        <div class="ficha-header">Descripción</div>
+        <div class="ficha-desc">{{ producto.descripcion }}</div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noProducto>
+    <div style="text-align:center; margin-top: 40px;">
+      <ion-icon name="alert-circle-outline" style="font-size: 48px; color: #e50012;"></ion-icon>
+      <p>Producto no encontrado.</p>
+    </div>
+  </ng-template>
+</ion-content>

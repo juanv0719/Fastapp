@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MenuCategoriasComponent } from '../components/menu-categorias/menu-categorias.component';
 import { MenuService, CategoriaMenu } from '../services/menu.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tproducto',
@@ -558,7 +559,7 @@ export class TproductoPage implements OnInit, AfterViewInit {
   searchTerm: string = '';
   productosFiltrados: any[] = [];
 
-  constructor(private menuService: MenuService, private cdr: ChangeDetectorRef) {}
+  constructor(private menuService: MenuService, private cdr: ChangeDetectorRef, private router: Router) {}
 
   ngOnInit() {
     this.categorias$ = this.menuService.categorias$;
@@ -659,4 +660,7 @@ export class TproductoPage implements OnInit, AfterViewInit {
     }, 100);
   }
   
+  verDetalle(producto: any) {
+    this.router.navigate(['/tproducto-detalle', producto.codigo]);
+  }
 }

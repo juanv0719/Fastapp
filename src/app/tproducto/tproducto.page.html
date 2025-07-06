@@ -46,6 +46,7 @@
           'intercalado-a': i % 2 === 0,
           'intercalado-b': i % 2 !== 0
         }"
+        (click)="verDetalle(producto)"
       >
         <div class="card-info-superior" *ngIf="i % 2 !== 0">
           <p class="codigo">COD: {{ producto.codigo }}</p>

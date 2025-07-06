@@ -23,9 +23,14 @@ const routes: Routes = [
       import('./register/register.module').then((m) => m.RegisterPageModule),
   },
  
-{ path: 'productos', loadChildren: () => import('./tproducto/tproducto.module').then(m => m.TproductoPageModule) },  {
+{ path: 'productos', loadChildren: () => import('./tproducto/tproducto.module').then(m => m.TproductoPageModule) },
+  {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'tproducto-detalle/:codigo',
+    loadComponent: () => import('./tproducto-detalle/tproducto-detalle.page').then(m => m.TproductoDetallePage)
   }
 
 ];
