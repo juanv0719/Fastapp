@@ -1,9 +1,12 @@
 <ion-header>
   <ion-toolbar>
+    <!-- Botón de opciones a la izquierda -->
     <ion-buttons slot="start">
       <ion-icon name="options-outline" slot="icon-only"></ion-icon>
     </ion-buttons>
+    <!-- Barra de búsqueda en el centro -->
     <ion-searchbar placeholder="Buscar productos..."></ion-searchbar>
+    <!-- Botón de carrito a la derecha -->
     <ion-buttons slot="end">
       <ion-icon name="cart-outline" slot="icon-only"></ion-icon>
     </ion-buttons>
@@ -13,6 +16,7 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
+      <!-- Recorre la lista de productos y muestra cada uno en una columna -->
       <ion-col
         size="6"
         size-sm="5"
@@ -20,23 +24,28 @@
         size-lg="3"
         *ngFor="let producto of productos; let i = index"
       >
+        <!-- Tarjeta de producto, cambia color de fondo según si el índice es par o impar -->
         <ion-card
           (click)="verDetalle(producto)"
           #productCard
           class="product-card"
           [ngClass]="{ 'intercalado-a': i % 2 === 0, 'intercalado-b': i % 2 !== 0 }"
         >
+          <!-- Muestra código y precio arriba si el índice es impar -->
           <div class="arriba" *ngIf="i % 2 !== 0">
             <p class="codigo">COD: {{ producto.codigo }}</p>
             <p class="precio">S/. {{ producto.precio.toFixed(2) }}</p>
           </div>
 
+          <!-- Imagen del producto -->
           <img [src]="producto.imagen" alt="Producto" />
 
+          <!-- Título del producto -->
           <ion-card-content>
             <p class="titulo">{{ producto.titulo }}</p>
           </ion-card-content>
 
+          <!-- Muestra código y precio abajo si el índice es par -->
           <div class="abajo" *ngIf="i % 2 === 0">
             <p class="codigo">COD: {{ producto.codigo }}</p>
             <p class="precio">S/. {{ producto.precio.toFixed(2) }}</p>

@@ -1,3 +1,4 @@
+<!-- Encabezado de la página con barra de herramientas y buscador -->
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -6,26 +7,31 @@
       </ion-button>
     </ion-buttons>
 
+    <!-- Contenedor del buscador -->
     <div class="busqueda-contenedor">
       <ion-searchbar placeholder="Buscar..." class="busqueda"></ion-searchbar>
     </div>
   </ion-toolbar>
 </ion-header>
 
+<!-- Contenido principal, solo se muestra si existe un producto -->
 <ion-content class="ion-padding" *ngIf="producto">
 
-  <!-- Contenedor horizontal -->
+  <!-- Contenedor horizontal para mostrar detalles del producto -->
   <div class="detalle-producto">
+    <!-- Columna izquierda: imagen y código del producto -->
     <div class="columna-izquierda">
       <img [src]="producto.imagen" [alt]="producto.titulo" class="imagen-producto" />
       <p class="codigo">COD: {{ producto.codigo }}</p>
     </div>
 
+    <!-- Columna derecha: marca, nombre, precio y selector de cantidad -->
     <div class="columna-derecha">
       <h2 class="marca">JORZABA</h2>
       <p class="nombre-producto">{{ producto.titulo }}</p>
       <p class="precio">S/. {{ precioTotal.toFixed(2) }}</p>
 
+      <!-- Selector de cantidad con botones para aumentar/disminuir -->
       <div class="cantidad-selector">
         <ion-button fill="outline" size="small" (click)="disminuirCantidad()" [disabled]="cantidad <= 1">-</ion-button>
         <span class="cantidad">{{ cantidad }}</span>
@@ -36,8 +42,9 @@
     </div>
   </div>
 
-  <!-- Ficha técnica y descripción -->
+  <!-- Contenedor para ficha técnica y descripción -->
   <div class="info-contenedor">
+    <!-- Ficha técnica, solo si existe en el producto -->
     <div class="ficha-tecnica" *ngIf="producto.fichaTecnica">
       <h3>Ficha técnica</h3>
       <p><strong>Material:</strong> {{ producto.fichaTecnica.material }}</p>
@@ -46,13 +53,14 @@
       <p><strong>Color:</strong> {{ producto.fichaTecnica.color }}</p>
     </div>
 
+    <!-- Descripción, solo si existe en el producto -->
     <div class="descripcion" *ngIf="producto.descripcion">
       <h3>Descripción</h3>
       <p>{{ producto.descripcion }}</p>
     </div>
   </div>
 
-  <!-- Botón volver -->
+  <!-- Botón flotante para volver a la página anterior -->
   <div class="contenedor-retroceso">
     <ion-button fill="clear" size="small" (click)="goBack()">
       <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
