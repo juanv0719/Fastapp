@@ -674,3 +674,18 @@ body.dark-theme .card-info-superior,
 body.dark-theme .card-info-inferior {
   background-color: #333 !important;
 }
+
+.titulo-productos {
+  text-align: center;
+  padding: 16px 0;
+  margin-top: 24px; // 👈 agrega espacio arriba
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+.titulo-productos h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}

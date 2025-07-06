@@ -17,11 +17,8 @@ export class MenuService {
     {
       nombre: 'Tapas y Chapas',
       submenu: [
-        'Tapa de gasolina con rosca y llave',
-        'Tapa de gasolina cromada 35mm',
-        'Tapa de gasolina con rosca y llave',
-        'Chapa de encendido universal 24V (metal)',
-        'Chapa de encendido 12V S/M',
+        'Tapa de gasolina',
+        'Chapa de encendido ',
       ],
       icon: 'fa-gas-pump',
     },
