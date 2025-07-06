@@ -1,69 +1,61 @@
 <ion-header>
   <ion-toolbar>
-    <!-- Botón de filtros o menú lateral -->
     <ion-buttons slot="start">
-      <ion-icon name="options-outline"></ion-icon>
+      <ion-button>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
 
-    <!-- Barra de búsqueda mejorada (más corta y centrada visualmente) -->
     <div class="busqueda-contenedor">
       <ion-searchbar placeholder="Buscar..." class="busqueda"></ion-searchbar>
     </div>
-
-    <!-- Icono de búsqueda -->
-    <ion-buttons slot="end">
-      <ion-icon name="search-outline"></ion-icon>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" *ngIf="producto">
 
-  <!-- Contenedor horizontal: imagen a la izquierda, info al lado -->
+  <!-- Contenedor horizontal -->
   <div class="detalle-producto">
-    <!-- Columna izquierda: imagen del producto y su código -->
     <div class="columna-izquierda">
-      <img src="assets/tapagasolinaR-sinllave.jpeg" alt="Tapa de Gasolina" class="imagen-producto" />
-      <p class="codigo">COD: TGC-02</p>
+      <img [src]="producto.imagen" [alt]="producto.titulo" class="imagen-producto" />
+      <p class="codigo">COD: {{ producto.codigo }}</p>
     </div>
 
-    <!-- Columna derecha: nombre, marca, precio dinámico, control de cantidad -->
     <div class="columna-derecha">
       <h2 class="marca">JORZABA</h2>
-      <p class="nombre-producto">Tapa de Gasolina con Rosca y Llave</p>
-
-      <!-- Precio actualizado en tiempo real -->
+      <p class="nombre-producto">{{ producto.titulo }}</p>
       <p class="precio">S/. {{ precioTotal.toFixed(2) }}</p>
 
-      <!-- Selector de cantidad -->
       <div class="cantidad-selector">
         <ion-button fill="outline" size="small" (click)="disminuirCantidad()" [disabled]="cantidad <= 1">-</ion-button>
         <span class="cantidad">{{ cantidad }}</span>
         <ion-button fill="outline" size="small" (click)="aumentarCantidad()" [disabled]="cantidad >= 99">+</ion-button>
       </div>
 
-      <!-- Mensaje de límite -->
       <p class="limite">Máximo 99 unidades</p>
     </div>
   </div>
 
   <!-- Ficha técnica y descripción -->
   <div class="info-contenedor">
-    <div class="ficha-tecnica">
+    <div class="ficha-tecnica" *ngIf="producto.fichaTecnica">
       <h3>Ficha técnica</h3>
-      <p><strong>Material:</strong> Plástico y metal</p>
-      <p><strong>Compatibilidad:</strong> Depósitos roscados estándar</p>
-      <p><strong>Color:</strong> Negro</p>
-      <p><strong>Voltaje:</strong> N/A</p>
+      <p><strong>Material:</strong> {{ producto.fichaTecnica.material }}</p>
+      <p><strong>Voltaje:</strong> {{ producto.fichaTecnica.voltaje }}</p>
+      <p><strong>Compatibilidad:</strong> {{ producto.fichaTecnica.compatibilidad }}</p>
+      <p><strong>Color:</strong> {{ producto.fichaTecnica.color }}</p>
     </div>
 
-    <div class="descripcion">
+    <div class="descripcion" *ngIf="producto.descripcion">
       <h3>Descripción</h3>
-      <p>Tapa de seguridad con cierre de rosca y llave, evita derrames y accesos no autorizados.</p>
+      <p>{{ producto.descripcion }}</p>
     </div>
   </div>
 
-  <!-- Icono de retroceso (ahora en la parte inferior derecha) -->
-  <ion-icon class="icono-retroceso" name="chevron-back-circle-outline"></ion-icon>
+  <!-- Botón volver -->
+  <div class="contenedor-retroceso">
+    <ion-button fill="clear" size="small" (click)="goBack()">
+      <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>
-

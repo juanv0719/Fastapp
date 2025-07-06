@@ -1,4 +1,3 @@
-<!-- productos-totales.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -22,6 +21,7 @@
         *ngFor="let producto of productos; let i = index"
       >
         <ion-card
+          (click)="verDetalle(producto)"
           #productCard
           class="product-card"
           [ngClass]="{ 'intercalado-a': i % 2 === 0, 'intercalado-b': i % 2 !== 0 }"

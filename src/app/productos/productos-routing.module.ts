@@ -6,8 +6,12 @@ import { ProductosPage } from './productos.page';
 const routes: Routes = [
   {
     path: '',
-    component: ProductosPage
-  }
+    component: ProductosPage,
+  },
+  {
+    path: ':codigo',
+    component: ProductosPage, // Esto permite acceder como /productos/TGC-02
+  },
 ];
 
 @NgModule({

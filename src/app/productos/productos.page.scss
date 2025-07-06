@@ -1,7 +1,7 @@
 /* Estilos generales mejorados para el contenedor del producto */
 .detalle-producto {
   display: flex;
-  gap: 15px;
+  gap: 29px;
   justify-content: center;
   margin-bottom: 20px;
   flex-wrap: wrap;
@@ -38,7 +38,7 @@
 
     .precio {
       color: red;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: bold;
       margin: 10px 0;
     }
@@ -87,27 +87,29 @@
   }
 }
 
-/* Icono de retroceso, ahora en la parte derecha inferior */
-.icono-retroceso {
+
+/* Botón flotante "Volver" */
+.contenedor-retroceso {
   position: fixed;
   bottom: 20px;
   right: 15px;
-  font-size: 2.4rem;
-  color: #444;
-  z-index: 100;
+  z-index: 999;
+
+  ion-button {
+    font-size: 1.8rem;
+    color: #333;
+  }
 }
 
-/* Contenedor para barra de búsqueda */
+/* Búsqueda */
 .busqueda-contenedor {
   display: flex;
   justify-content: center;
   flex: 1;
 
   .busqueda {
-    width: 200px;
-    --border-radius: 10px;
+    width: 220px;
+    --border-radius: 12px;
     --box-shadow: none;
   }
 }
-
-
