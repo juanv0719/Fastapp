@@ -13,56 +13,48 @@ export interface CategoriaMenu {
   providedIn: 'root',
 })
 export class MenuService {
-  private categoriasSubject = new BehaviorSubject<CategoriaMenu[]>([
-    {
-      nombre: 'Tapas y Chapas',
-      submenu: [
-        'Tapa de gasolina',
-        'Chapa de encendido ',
-      ],
-      icon: 'fa-gas-pump',
-    },
-    {
-      nombre: 'Electricos',
-      submenu: ['Alternador 12V', 'Regulador de voltaje', 'Bobina de encendido'],
-      icon: 'fa-bolt',
-    },
-    {
-      nombre: 'Claxon/Sirenas',
-      submenu: ['Claxon simple', 'Sirena doble tono'],
-      icon: 'fa-bell',
-    },
-    {
-      nombre: 'Componentes Elec.',
-      submenu: ['Fusibles', 'Relés', 'Portafusibles'],
-      icon: 'fa-microchip',
-    },
-    {
-      nombre: 'Arrancadores y En.',
-      submenu: ['Arrancador 24V', 'Solenoide de arranque'],
-      icon: 'fa-car-battery',
-    },
-    {
-      nombre: 'Switches y Paneles',
-      submenu: ['Switch de luces', 'Panel de control'],
-      icon: 'fa-toggle-on',
-    },
-    {
-      nombre: 'Medidores de aire',
-      submenu: ['Medidor digital', 'Sensor de flujo'],
-      icon: 'fa-tachometer-alt',
-    },
-    {
-      nombre: 'Tenazas y Bornes',
-      submenu: ['Tenaza universal', 'Borne positivo', 'Borne negativo'],
-      icon: 'fa-tools',
-    },
-    {
-      nombre: 'Otros productos',
-      submenu: ['Producto especial 1', 'Producto especial 2'],
-      icon: 'fa-box-open',
-    },
-  ]);
+private categoriasSubject = new BehaviorSubject<CategoriaMenu[]>([
+  {
+    nombre: 'Tapas y Chapas',
+    submenu: ['Tapa de gasolina', 'Chapa de encendido'],
+    icon: 'fa-gas-pump',
+  },
+  {
+    nombre: 'Bornes',
+    submenu: ['Borne para Tico', 'Borne tipo mariposa'],
+    icon: 'fa-car-battery',
+  },
+  {
+    nombre: 'Claxon',
+    submenu: ['Claxon'],
+    icon: 'fa-bullhorn',
+  },
+  {
+    nombre: 'Resistencia',
+    submenu: ['Fusible', 'Portafusible'],
+    icon: 'fa-bolt',
+  },
+  {
+    nombre: 'Medidor',
+    submenu: ['Medidor', 'Sirena', 'Claxon', 'Laina'],
+    icon: 'fa-tachometer-alt',
+  },
+  {
+    nombre: 'Conectores',
+    submenu: ['Conectores', 'Conectores de cable', 'Conectores de batería'],
+    icon: 'fa-plug',
+  },
+  {
+    nombre: 'Sokete',
+    submenu: ['Soquet', 'Switch', 'Foco', 'Conectores', 'Seguros'],
+    icon: 'fa-lightbulb',
+  },
+  {
+    nombre: 'Chupone',
+    submenu: ['Chanchito', 'Chapa', 'Bocina'],
+    icon: 'fa-volume-up',
+  },
+]);
 
   public categorias$ = this.categoriasSubject.asObservable();
 

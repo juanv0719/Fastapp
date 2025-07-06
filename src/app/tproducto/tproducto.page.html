@@ -35,9 +35,7 @@
 <ion-content>
 
   <!-- Título centrado -->
-  <div class="titulo-productos">
-    <h1>TODOS LOS PRODUCTOS</h1>
-  </div>
+
 
   <div class="productos-grid">
     <ng-container *ngIf="productosFiltrados.length > 0; else sinResultados">
@@ -80,6 +78,11 @@
       </div>
     </ng-template>
   </div>
+
+
+
+
+  
 </ion-content>
 
 <!-- Sidebar de categorías como componente con esto importo siempre cada menu
@@ -89,6 +92,8 @@
   [isMenuOpen]="isMenuOpen"
   [categorias]="(categorias$ | async) || []"
   (close)="closeMenu()"
-  (categoriaSeleccionada)="filtrarPorCategoria($event)"
-  (subcategoriaSeleccionada)="filtrarPorCategoriaP('tapa')"
+  (categoriaSeleccionada)="filtrarPorCategoriaP($event)"
+  (subcategoriaSeleccionada)="filtrarPorCategoriaP($event)"
+  (todosProductos)="resetFiltrado()"
 ></app-menu-categorias>
+

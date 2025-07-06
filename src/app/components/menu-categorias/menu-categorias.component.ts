@@ -22,16 +22,16 @@ export class MenuCategoriasComponent implements OnInit {
   @Output() close = new EventEmitter<void>();
   @Output() categoriaSeleccionada = new EventEmitter<string>();
   @Output() subcategoriaSeleccionada = new EventEmitter<string>();
+  @Output() todosProductos = new EventEmitter<void>();
 
   seleccionarCategoria(nombre: string) {
-    // Normaliza el nombre para que coincida con la propiedad categoria de los productos
-    if (nombre.toLowerCase().includes('tapa')) {
-      this.categoriaSeleccionada.emit('tapas');
-    } else if (nombre.toLowerCase().includes('claxon')) {
-      this.categoriaSeleccionada.emit('claxon');
-    } else {
-      this.categoriaSeleccionada.emit(nombre.toLowerCase());
-    }
+    // Solo emite el nombre tal cual para filtrar por categoria exacta
+    this.categoriaSeleccionada.emit(nombre.toLowerCase());
+    this.closeMenu();
+  }
+
+  mostrarTodosProductos() {
+    this.todosProductos.emit();
     this.closeMenu();
   }
 
