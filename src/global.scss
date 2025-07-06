@@ -185,6 +185,12 @@ body.dark-theme .menu-btn {
   background: #ee1414 !important;
 }
 
+body.dark-theme .menu-btn i {
+  background: #232526 !important;
+  border-radius: 50% !important;
+  padding: 6px !important;
+}
+
 body.dark-theme .btn-inicio {
   background: #232526 !important;
   color: #fff !important;
@@ -194,6 +200,8 @@ body.dark-theme .btn-cerrar-sesion {
   background: #232526 !important;
   color: #fff !important;
 }
+
+
 
 /* Estilo general para headers y toolbars (botones de inicio y cerrar sesión) */
 body.dark-theme ion-header,
