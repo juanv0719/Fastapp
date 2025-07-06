@@ -32,19 +32,19 @@
 
       <!-- Aca estan los botones mas su color de cada icono en mi menu productos , tapas y chapas y demas.. -->
       <ng-container *ngFor="let cat of categorias">
-        <div class="sidebar-item">
+        <div class="sidebar-item" (click)="seleccionarCategoria(cat.nombre)">
           <div class="sidebar-icon">
             <i *ngIf="cat.icon" class="fas" [ngClass]="cat.icon" [style.color]="cat.nombre === 'Electricos' || cat.nombre === 'Elec.' ? '#ff4444' : '#ff4444'"></i>
           </div>
           <span class="sidebar-text">{{ cat.nombre }}</span>
-          <button class="sidebar-arrow" (click)="toggleItem(cat)">
+          <button class="sidebar-arrow" (click)="$event.stopPropagation(); toggleItem(cat)">
             <i class="fas" [class.fa-caret-down]="!expandedItems[cat.nombre]" [class.fa-caret-up]="expandedItems[cat.nombre]"></i>
           </button>
         </div>
         <div class="sidebar-submenu" [class.active]="expandedItems[cat.nombre]" *ngIf="expandedItems[cat.nombre]">
           <ul class="submenu-list">
             <li class="submenu-item" *ngFor="let prod of cat.submenu">
-              <span>{{ prod }}</span>
+              <button style="all:unset;cursor:pointer;color:#007bff" (click)="$event.stopPropagation(); seleccionarSubcategoria(prod)">{{ prod }}</button>
             </li>
           </ul>
         </div>

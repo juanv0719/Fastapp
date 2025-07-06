@@ -89,4 +89,6 @@
   [isMenuOpen]="isMenuOpen"
   [categorias]="(categorias$ | async) || []"
   (close)="closeMenu()"
+  (categoriaSeleccionada)="filtrarPorCategoria($event)"
+  (subcategoriaSeleccionada)="filtrarPorCategoriaP('tapa')"
 ></app-menu-categorias>

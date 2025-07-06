@@ -18,7 +18,7 @@ export class TproductoPage implements OnInit, AfterViewInit {
   categorias$!: Observable<CategoriaMenu[]>;
 
   productos: any[] = [
-     { titulo: 'Switch con luz 12V 35A (verde)', codigo: 'SIWL03', precio: 3.98, imagen: 'assets/switchluzV.jpeg' },
+    { titulo: 'Switch con luz 12V 35A (verde)', codigo: 'SIWL03', precio: 3.98, imagen: 'assets/switchluzV.jpeg', categoria: 'tapas', categoriaP : 'tapa' },
     { titulo: 'Claxon tono alto tipo disco 12V SEGER', codigo: 'CLXP-0001', precio: 27.5, imagen: 'assets/claxonseger.jpeg' },
     { titulo: 'Medidor de aire metálico hasta 120 PSI', codigo: 'MDAI-01', precio: 14.45, imagen: 'assets/medidoraire.jpeg' },
     { titulo: 'Tapa de gasolina cromada 35mm', codigo: 'TGC.01', precio: 20.5, imagen: 'assets/tapacromada.jpeg' },
@@ -30,12 +30,12 @@ export class TproductoPage implements OnInit, AfterViewInit {
     { titulo: 'Chanchito arrancador 12V', codigo: 'SRL13', precio: 22.8, imagen: 'assets/chanchitoarrancador.jpeg' },
     { titulo: 'Relay electrónico', codigo: 'RE15', precio: 22.7, imagen: 'assets/relayelectronico.jpeg' },
     { titulo: 'Switch levanta luna tipo flecha', codigo: 'SLL01', precio: 6.5, imagen: 'assets/switchlevantaluna.jpeg' },
-    { titulo: 'Tapa de gasolina con rosca sin llave', codigo: 'TGC-03', precio: 9.3, imagen: 'assets/tapagasolinaR-sinllave.jpeg' },
+    { titulo: 'Tapa de gasolina con rosca sin llave', codigo: 'TGC-03', precio: 9.3, imagen: 'assets/tapagasolinaR-sinllave.jpeg', categoria: 'tapas' , categoriaP : 'tapa'},
     { titulo: 'Encendedor universal 12V completo', codigo: 'EDC04', precio: 9.9, imagen: 'assets/encendedoruniversal.jpeg' },
     { titulo: 'Sirena retroceso 12V “bebé”', codigo: 'SRNR12V01', precio: 14.7, imagen: 'assets/sirenaretroceso-BB.jpeg' },
     { titulo: 'Porta fusible de uña rojo y negro (x10 und)', codigo: 'PFUÑA01', precio: 2.15, imagen: 'assets/portafusibleRyN.png' },
     { titulo: 'Switch con luz 12V 35A (amarillo)', codigo: 'SIWL01', precio: 3.98, imagen: 'assets/switchluzA.jpeg' },
-    { titulo: 'Tapa de gasolina con rosca y llave', codigo: 'TGC-02', precio: 11.8, imagen: 'assets/tapagasolinaR-conllave.jpeg' },
+    { titulo: 'Tapa de gasolina con rosca y llave', codigo: 'TGC-02', precio: 11.8, imagen: 'assets/tapagasolinaR-conllave.jpeg', categoria: 'tapas' , categoriaP : 'tapa' },
     { titulo: 'Medidor de aire 120 PSI diagonal', codigo: 'MDA4I', precio: 26.9, imagen: 'assets/medidoraireD.png' },
     { titulo: 'Filtro metal Nissan', codigo: 'FUG04', precio: 7.56, imagen: 'assets/filtrometal-Nissan.jpeg' },
     { titulo: 'Tenaza mediana POS/NEG', codigo: 'TN2', precio: 2.91, imagen: 'assets/tenazamedianaPOS-NEG.jpeg' },
@@ -86,12 +86,45 @@ export class TproductoPage implements OnInit, AfterViewInit {
         descripcion: '', // puedes agregar texto si deseas
         codigo: p.codigo,
         precio: p.precio,
-        imagen: p.imagen
+        imagen: p.imagen,
+        categoria: p.categoria || ''
       }));
     }
 
     // Inicializa el listado filtrado
     this.resetFiltrado();
+  }
+  // Filtra productos por categoría (general)
+  filtrarPorCategoria(categoria: string) {
+    if (!categoria) {
+      this.resetFiltrado();
+      return;
+    }
+    // Si la categoría es exactamente 'tapa de gasolina', filtra por categoriaP
+    if (categoria.trim().toLowerCase() === 'tapa de gasolina') {
+      this.filtrarPorCategoriaP('tapa');
+      return;
+    }
+    this.productosFiltrados = this.productos.filter(producto =>
+      producto.categoria && producto.categoria.toLowerCase() === categoria.toLowerCase()
+    );
+    this.cdr.detectChanges();
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.producto-card');
+      cards.forEach((card) => card.classList.add('visible'));
+    }, 100);
+  }
+
+  // Filtra productos por categoriaP (subcategoría específica)
+  filtrarPorCategoriaP(categoriaP: string) {
+    this.productosFiltrados = this.productos.filter(producto =>
+      producto.categoriaP && producto.categoriaP.toLowerCase() === categoriaP.toLowerCase()
+    );
+    this.cdr.detectChanges();
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.producto-card');
+      cards.forEach((card) => card.classList.add('visible'));
+    }, 100);
   }
 
   resetFiltrado() {
