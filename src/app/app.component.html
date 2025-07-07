@@ -4,11 +4,14 @@
     <div class="statusbar-bg"></div>
 
     <!-- Header fuera del container -->
-    <div class="top-header">
-      <i id="menuBtn" class="fas fa-bars menu-icon" (click)="openMenu()"></i>
-      <div class="logo">FAST APP</div>
-      <i class="fas fa-shopping-cart cart-icon"></i>
-    </div>
+  <div class="top-header">
+  <i id="menuBtn" class="fas fa-bars menu-icon" (click)="openMenu()"></i>
+  <div class="logo">FAST APP</div>
+  <button class="cart-button" (click)="goToCart()">
+    <i class="fas fa-shopping-cart cart-icon"></i>
+  </button>
+</div>
+
 
     <!-- Sidebar fuera del container -->
     <div class="sidebar" [class.active]="isMenuOpen">

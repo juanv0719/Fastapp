@@ -91,4 +91,12 @@ export class AppComponent {
     this.closeMenu();
     this.router.navigateByUrl('/config');
   }
+
+
+goToCart() {
+  this.closeMenu();
+  this.router.navigateByUrl('/compra');
+}
+
+
 }
