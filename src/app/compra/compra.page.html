@@ -20,12 +20,14 @@
       </div>
       <div class="carro-item-info">
         <div class="carro-item-titulo">{{ item.producto.titulo || item.producto.nombre }}</div>
-        <div class="carro-item-cantidad">
-          <button class="cantidad-btn" (click)="restar(item)" [disabled]="item.cantidad<=1">-</button>
-          <span class="cantidad-num">{{ item.cantidad }}</span>
-          <button class="cantidad-btn" (click)="sumar(item)" [disabled]="item.cantidad>=99">+</button>
+        <div class="carro-item-cantidad-precio-row">
+          <div class="carro-item-cantidad">
+            <button class="cantidad-btn" (click)="restar(item)" [disabled]="item.cantidad<=1">-</button>
+            <span class="cantidad-num">{{ item.cantidad }}</span>
+            <button class="cantidad-btn" (click)="sumar(item)" [disabled]="item.cantidad>=99">+</button>
+          </div>
+          <div class="carro-item-precio" [ngClass]="{'rojo': !isResumenOpen}">S/. {{ (item.producto.precio * item.cantidad) | number:'1.2-2' }}</div>
         </div>
-        <div class="carro-item-precio">S/. {{ (item.producto.precio * item.cantidad) | number:'1.2-2' }}</div>
       </div>
       <button class="carro-item-eliminar" (click)="eliminar(item)"><ion-icon name="close-outline"></ion-icon></button>
     </div>
@@ -33,12 +35,36 @@
 
   <!-- Footer fijo al fondo -->
   <div class="footer">
-    <div class="total-row">
-      <span class="total-label">Total:</span>
-      <span class="total-monto">S/. {{ total | number:'1.2-2' }}</span>
-      <ion-icon name="chevron-up-outline" class="icono-up"></ion-icon>
+
+    <div class="total-row" (click)="toggleResumen()">
+
+      
+      <span class="resumen-label">Total</span>
+      <span class="resumen-total">S/ {{ total | number:'1.2-2' }}</span>
+      <ion-icon
+        name="chevron-up-outline"
+        class="icono-up"
+        [class.rotado]="isResumenOpen"
+      ></ion-icon>
     </div>
-    <ion-button expand="block" class="btn-cotizar" [disabled]="items.length === 0">
+
+    <div
+      class="resumen-container"
+      *ngIf="isResumenOpen"
+      [@slideDownUp]
+    >
+      <div class="resumen-titulo">Productos ({{ items.length }})</div>
+      <div class="resumen-item" *ngFor="let item of items">
+        <span class="resumen-nombre">{{ item.producto.titulo || item.producto.nombre }}</span>
+        <span class="resumen-precio">S/ {{ (item.producto.precio * item.cantidad) | number:'1.2-2' }}</span>
+      </div>
+    </div>
+
+    <ion-button
+      expand="block"
+      class="btn-cotizar"
+      [disabled]="items.length === 0"
+    >
       Continuar cotización
     </ion-button>
   </div>

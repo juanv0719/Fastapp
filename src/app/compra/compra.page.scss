@@ -1,3 +1,11 @@
+  .carro-item-cantidad-precio-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 4px;
+  }
+
 // --- ESTILOS DE LA PÁGINA DE COMPRA ---
 .compra-content {
   // LISTA DE PRODUCTOS EN EL CARRITO
@@ -73,9 +81,16 @@
   }
 
   .carro-item-precio {
-    color: #f8f8f8;
+    color: #222;
     font-size: 1.15rem;
     font-weight: bold;
+    margin-left: 12px;
+    min-width: 90px;
+    text-align: right;
+    transition: color 0.2s;
+  }
+  .carro-item-precio.rojo {
+    color: #e50012 !important;
   }
 
   .carro-item-eliminar {
@@ -94,12 +109,20 @@
   .carro-item-eliminar:hover {
     background: #ffeaea;
   }
+.total-texto {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #111;
+  letter-spacing: 1px;
+}
 
-  .total-monto {
+  .total-monto-rojo {
     color: #e50012;
     font-size: 1.2rem;
     font-weight: bold;
-    margin-left: 8px;
+    margin-right: 8px;
+    min-width: 90px;
+    text-align: right;
   }
   position: relative;
   background: #fff;
@@ -157,32 +180,86 @@
     color: #666;
     margin-top: 4px;
   }
-
   .footer {
     position: fixed;
-    bottom: 0;
     left: 0;
-    width: 100%;
+    right: 0;
+    bottom: 0;
     background: #fff;
-    padding: 16px;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.07);
+    padding: 0 0 16px 0;
+    z-index: 2000;
     box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-  }
 
-  .total-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-
-    .total-label {
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0 12px 0;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+      position: relative;
+      z-index: 2;
+    }
+    .resumen-label {
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;
       color: #333;
+      margin-left: 18px;
+    }
+    .resumen-total {
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+      margin-right: 24px;
+    }
+    .icono-up {
+      font-size: 28px;
+      color: #444;
+      margin: 0 8px;
+      transition: transform 0.3s ease;
+      &.rotado {
+        transform: rotate(180deg);
+      }
     }
 
-    .icono-up {
-      font-size: 24px;
-      color: #999;
+    .resumen-container {
+      border-top: 1px solid #eee;
+      padding: 12px 0 0 0;
+      background: #fff;
+      .resumen-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 18px;
+        font-size: 16px;
+        color: #444;
+        .resumen-nombre {
+          flex: 1;
+        }
+        .resumen-precio {
+          font-weight: bold;
+          color: #333;
+        }
+      }
+      .resumen-total-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
+        padding: 12px 18px 0 18px;
+      }
+      .resumen-total-label {
+        font-weight: bold;
+        font-size: 18px;
+        color: #333;
+      }
+      .resumen-total {
+        font-weight: bold;
+        font-size: 20px;
+        color: #333;
+      }
     }
   }
 
