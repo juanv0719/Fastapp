@@ -1,4 +1,4 @@
-// --- Eliminada declaración fuera de clase ---
+
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
@@ -17,6 +17,9 @@ import { CarritoService } from '../services/carrito.service';
   styleUrls: ['./tproducto.page.scss'],
 })
 export class TproductoPage implements OnInit, AfterViewInit {
+  abrirWhatsappAyuda() {
+    window.open('https://wa.me/51959175876', '_blank');
+  }
   isMenuOpen = false;
   categorias$!: Observable<CategoriaMenu[]>;
 

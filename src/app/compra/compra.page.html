@@ -64,8 +64,23 @@
       expand="block"
       class="btn-cotizar"
       [disabled]="items.length === 0"
+      (click)="abrirModalCotizacion()"
     >
       Continuar cotización
     </ion-button>
+
+    <div class="modal-cotizacion" *ngIf="mostrarModalCotizacion">
+      <div class="modal-cotizacion-content">
+        <div class="modal-cotizacion-titulo">
+          ¿ DESEAS REALIZAR LA COTIZACION?
+        </div>
+        <button class="btn-realizar-cotizacion" (click)="realizarCotizacion()">
+          SI, realizar cotizacion
+        </button>
+        <button class="btn-continuar-comprando" (click)="continuarComprando()">
+          CONTINUAR COMPRANDO
+        </button>
+      </div>
+    </div>
   </div>
 </ion-content>

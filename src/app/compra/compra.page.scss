@@ -1,3 +1,70 @@
+// MODAL COTIZACION
+.modal-cotizacion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.25);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-cotizacion-content {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  padding: 38px 32px 32px 32px;
+  min-width: 320px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.modal-cotizacion-titulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #444;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  letter-spacing: 1px;
+}
+.btn-realizar-cotizacion {
+  background: #2ecc1a;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 18px 38px;
+  font-size: 1.35rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(46,204,26,0.12);
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-realizar-cotizacion:hover {
+  background: #27ae13;
+  transform: scale(1.04);
+}
+.btn-continuar-comprando {
+  background: #e50012;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 18px 38px;
+  font-size: 1.35rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(229,0,18,0.12);
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-continuar-comprando:hover {
+  background: #b8000e;
+  transform: scale(1.04);
+}
   .carro-item-cantidad-precio-row {
     display: flex;
     align-items: center;
