@@ -1,0 +1,96 @@
+.compra-content {
+  position: relative;
+  background: #fff;
+  height: 100%;
+  padding-top: 25px; // espacio para la status bar
+
+  .statusbar-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 25px;
+    background: #ffffff;
+    z-index: 2200;
+  }
+
+  .content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 130px); 
+    padding: 16px;
+  }
+
+  .carro-card {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 12px 16px;
+    max-width: 350px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .carro-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 12px;
+  }
+
+  .carro-textos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .carro-titulo {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .carro-subtitulo {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 16px;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  }
+
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    .total-label {
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .icono-up {
+      font-size: 24px;
+      color: #999;
+    }
+  }
+
+  .btn-cotizar {
+    --background: #e50012;
+    --border-radius: 999px;
+    --color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: none;
+    height: 48px;
+  }
+}

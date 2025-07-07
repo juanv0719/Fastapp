@@ -31,7 +31,12 @@ const routes: Routes = [
   {
     path: 'tproducto-detalle/:codigo',
     loadComponent: () => import('./tproducto-detalle/tproducto-detalle.page').then(m => m.TproductoDetallePage)
+  },
+  {
+    path: 'compra',
+    loadChildren: () => import('./compra/compra.module').then(m => m.CompraPageModule)
   }
+
 
 ];
 

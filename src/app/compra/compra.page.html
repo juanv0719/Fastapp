@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true" class="compra-content">
+  <div class="statusbar-bg"></div>
+
+  <!-- Contenedor de contenido centrado -->
+  <div class="content-center">
+    <div class="carro-card">
+      <img src="../../assets/carritoVacio.png" alt="Carrito vacío" class="carro-img" />
+      <div class="carro-textos">
+        <div class="carro-titulo">Tu Carro está vacío</div>
+        <div class="carro-subtitulo">Agrega productos para cotizar</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer fijo al fondo -->
+  <div class="footer">
+    <div class="total-row">
+      <span class="total-label">Total:</span>
+      <ion-icon name="chevron-up-outline" class="icono-up"></ion-icon>
+    </div>
+    <ion-button expand="block" class="btn-cotizar">
+      Continuar cotización
+    </ion-button>
+  </div>
+</ion-content>
