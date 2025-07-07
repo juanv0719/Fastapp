@@ -1,3 +1,4 @@
+// --- Eliminada declaración fuera de clase ---
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
@@ -21,7 +22,7 @@ export class TproductoPage implements OnInit, AfterViewInit {
   productos: any[] = [
     { titulo: 'Switch con luz 12V 35A (verde)', codigo: 'SIWL03', precio: 3.98, imagen: 'assets/switchluzV.jpeg', categoria: 'tapas' },
     { titulo: 'Claxon tono alto tipo disco 12V SEGER', codigo: 'CLXP-0001', precio: 27.5, imagen: 'assets/claxonseger.jpeg' },
-    { titulo: 'Medidor de aire metálico hasta 120 PSI', codigo: 'MDAI-01', precio: 14.45, imagen: 'assets/medidoraire.jpeg' },
+   { titulo: 'Medidor de aire metálico hasta 120 PSI', codigo: 'MDAI-01', precio: 14.45, imagen: 'assets/medidoraire.jpeg' },
     { titulo: 'Tapa de gasolina cromada 35mm', codigo: 'TGC.01', precio: 20.5, imagen: 'assets/tapacromada.jpeg' },
     { titulo: 'Soquete de lágrima para foco – 158', codigo: 'SKL2C', precio: 1.2, imagen: 'assets/soquetefoco.jpeg' },
     { titulo: 'Filtro gasolina Toyota (Corona, Corolla)', codigo: 'FGU05', precio: 15.55, imagen: 'assets/filtrogasolina-corolla.jpeg' },
@@ -660,6 +661,11 @@ export class TproductoPage implements OnInit, AfterViewInit {
     }, 100);
   }
   
+  irACompra(event: Event) {
+    event.stopPropagation(); // Para evitar que se dispare verDetalle
+    this.router.navigate(['/compra']);
+  }
+
   verDetalle(producto: any) {
     this.router.navigate(['/tproducto-detalle', producto.codigo]);
   }

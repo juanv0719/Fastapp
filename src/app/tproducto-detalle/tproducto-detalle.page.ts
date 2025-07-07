@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { ProductosService } from '../services/productos.service'; // importa el servicio
@@ -18,8 +18,12 @@ export class TproductoDetallePage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productosService: ProductosService // inyecta el servicio
+    private productosService: ProductosService, // inyecta el servicio
+    private router: Router
   ) {}
+  irACompra() {
+    this.router.navigate(['/compra']);
+  }
 
   ngOnInit() {
     this.codigo = this.route.snapshot.paramMap.get('codigo');
