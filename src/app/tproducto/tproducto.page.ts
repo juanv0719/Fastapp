@@ -7,6 +7,7 @@ import { MenuCategoriasComponent } from '../components/menu-categorias/menu-cate
 import { MenuService, CategoriaMenu } from '../services/menu.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { CarritoService } from '../services/carrito.service';
 
 @Component({
   selector: 'app-tproducto',
@@ -560,7 +561,12 @@ export class TproductoPage implements OnInit, AfterViewInit {
   searchTerm: string = '';
   productosFiltrados: any[] = [];
 
-  constructor(private menuService: MenuService, private cdr: ChangeDetectorRef, private router: Router) {}
+  constructor(
+    private menuService: MenuService,
+    private cdr: ChangeDetectorRef,
+    private router: Router,
+    private carritoService: CarritoService
+  ) {}
 
   ngOnInit() {
     this.categorias$ = this.menuService.categorias$;
@@ -661,8 +667,12 @@ export class TproductoPage implements OnInit, AfterViewInit {
     }, 100);
   }
   
-  irACompra(event: Event) {
+
+  irACompra(event: Event, producto?: any) {
     event.stopPropagation(); // Para evitar que se dispare verDetalle
+    if (producto) {
+      this.carritoService.addItem(producto, 1);
+    }
     this.router.navigate(['/compra']);
   }
 

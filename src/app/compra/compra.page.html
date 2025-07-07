@@ -19,7 +19,7 @@
         <img [src]="item.producto.imagen" [alt]="item.producto.titulo" />
       </div>
       <div class="carro-item-info">
-        <div class="carro-item-titulo">{{ item.producto.titulo }}</div>
+        <div class="carro-item-titulo">{{ item.producto.titulo || item.producto.nombre }}</div>
         <div class="carro-item-cantidad">
           <button class="cantidad-btn" (click)="restar(item)" [disabled]="item.cantidad<=1">-</button>
           <span class="cantidad-num">{{ item.cantidad }}</span>
