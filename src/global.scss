@@ -204,7 +204,7 @@ body.dark-theme .btn-cerrar-sesion {
 
 
 /* Estilo general para headers y toolbars (botones de inicio y cerrar sesión) */
-body.dark-theme ion-header,
+/* body.dark-theme ion-header,
 body.dark-theme ion-toolbar {
   --background: #ee1414 !important;
   --color: #fff !important;
@@ -214,7 +214,16 @@ body.dark-theme ion-toolbar {
   padding: 0 !important;
   top: 10px !important;
   height: 60px !important;
+} */
+.detalle-titulo {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 16px 0;
 }
+
+
 
 /* Estilo especial para el menú hamburguesa (barra roja) */
 body.dark-theme .menu-hamburguesa ion-toolbar {

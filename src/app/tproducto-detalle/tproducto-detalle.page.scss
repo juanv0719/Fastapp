@@ -1,3 +1,56 @@
+.detalle-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+  margin: 18px auto 0 auto;
+  gap: 24px;
+}
+.btn-agregar-detalle {
+  background: #23272f;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 32px;
+  font-size: 1.18rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.btn-agregar-detalle i {
+  font-size: 1.2rem;
+}
+.btn-agregar-detalle:hover {
+  background: #18191a;
+  transform: scale(1.04);
+}
+.detalle-precio-codigo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.detalle-precio {
+  color: #e50012;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0;
+}
+.detalle-codigo {
+  text-align: left;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+.ficha-header-blanco {
+  color: #fff !important;
+  background: #23272f !important;
+}
 // Forzar color de texto oscuro en el scroll interno de Ionic
 .inner-scroll {
   color: #040404 !important;
@@ -43,6 +96,7 @@ ion-content {
   color: #222;
 }
 .detalle-titulo {
+    text-align: center;
   text-align: right;
   width: 90%;
   font-size: 1.1rem;
@@ -120,7 +174,7 @@ ion-content {
   align-items: stretch;
 }
 .ficha-header {
-  background: #000000;
+  background: #ed0e0e;
   border-radius: 8px 8px 0 0;
   font-weight: bold;
   text-align: center;

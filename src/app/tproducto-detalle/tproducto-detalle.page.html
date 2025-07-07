@@ -1,10 +1,6 @@
 
 <div class="statusbar-bg"></div>
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title></ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
   <div class="detalle-container" *ngIf="producto; else noProducto">
@@ -13,6 +9,11 @@
     </div>
     <div class="detalle-marca">{{ producto.marca }}</div>
     <div class="detalle-titulo">{{ producto.titulo }}</div>
+    <div class="detalle-row">
+      <button class="btn-agregar-detalle">
+        Agregar <i class="fas fa-shopping-cart"></i>
+      </button>
+    </div>
     <div class="detalle-precio">S/. {{ producto.precio | number:'1.2-2' }}</div>
     <div class="detalle-codigo">COD: {{ producto.codigo }}</div>
 
@@ -25,13 +26,13 @@
 
     <div class="detalle-fichas">
       <div class="ficha-col">
-        <div class="ficha-header">Ficha tecnica</div>
+        <div class="ficha-header ficha-header-blanco">Ficha tecnica</div>
         <div class="ficha-item" *ngFor="let item of producto.ficha">
           {{ item.label }}: {{ item.value }}
         </div>
       </div>
       <div class="ficha-col">
-        <div class="ficha-header">Descripción</div>
+        <div class="ficha-header ficha-header-blanco">Descripción</div>
         <div class="ficha-desc">{{ producto.descripcion }}</div>
       </div>
     </div>
