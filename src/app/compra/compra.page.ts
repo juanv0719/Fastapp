@@ -1,5 +1,5 @@
-// ...el resto del código está en la clase CompraPage más abajo...
 import { Component, OnInit } from '@angular/core';
+import jsPDF from 'jspdf';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
@@ -41,6 +41,56 @@ export class CompraPage implements OnInit {
   mostrarModalCotizacion = false;
 
   constructor(private carritoService: CarritoService, private router: Router) {}
+
+  generarPDF(): void {
+    const doc = new jsPDF();
+    const imgPath = 'assets/repuestojorzaba.png';
+    // Encabezado
+    doc.setFontSize(20);
+    doc.setTextColor('#e50012');
+    doc.text('Resumen de Cotización', 105, 22, { align: 'center' });
+    // Logo
+    const img = new Image();
+    img.src = imgPath;
+    img.onload = () => {
+      doc.addImage(img, 'PNG', 15, 10, 18, 18);
+      this._generarPDFTabla(doc);
+    };
+    img.onerror = () => {
+      this._generarPDFTabla(doc);
+    };
+  }
+
+  private _generarPDFTabla(doc: jsPDF): void {
+    let y = 40;
+    doc.setFontSize(12);
+    doc.setTextColor('#222');
+    doc.text('Producto', 20, y);
+    doc.text('Cantidad', 100, y);
+    doc.text('Subtotal', 160, y);
+    y += 8;
+    doc.setLineWidth(0.5);
+    doc.line(15, y, 195, y);
+    y += 8;
+    (this.items || []).forEach((item: any) => {
+      doc.text(String(item.producto.titulo || item.producto.nombre), 20, y);
+      doc.text(String(item.cantidad), 110, y, { align: 'right' });
+      doc.text('S/. ' + (item.producto.precio * item.cantidad).toFixed(2), 180, y, { align: 'right' });
+      y += 8;
+    });
+    y += 4;
+    doc.setLineWidth(0.3);
+    doc.line(15, y, 195, y);
+    y += 10;
+    doc.setFontSize(14);
+    doc.setTextColor('#e50012');
+    doc.text('Total: S/. ' + (this.total ? this.total.toFixed(2) : '0.00'), 180, y, { align: 'right' });
+    // Pie de página
+    doc.setFontSize(10);
+    doc.setTextColor('#888');
+    doc.text('Gracias por su preferencia.', 105, 285, { align: 'center' });
+    doc.save('cotizacion.pdf');
+  }
 
   private itemsSubscription: any;
   ngOnInit() {

@@ -1,3 +1,29 @@
+// Botón PDF
+.btn-pdf {
+  background: linear-gradient(90deg, #e50012 60%, #ff4444 100%);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 1.08rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(229,0,18,0.12);
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  outline: none;
+  margin-left: 0;
+}
+.btn-pdf:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-pdf:hover {
+  background: linear-gradient(90deg, #ff4444 60%, #e50012 100%);
+  transform: scale(1.04);
+}
 // MODAL COTIZACION
 .modal-cotizacion {
   position: fixed;

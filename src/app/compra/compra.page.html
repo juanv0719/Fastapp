@@ -60,14 +60,20 @@
       </div>
     </div>
 
-    <ion-button
-      expand="block"
-      class="btn-cotizar"
-      [disabled]="items.length === 0"
-      (click)="abrirModalCotizacion()"
-    >
-      Continuar cotización
-    </ion-button>
+    <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 8px;">
+      <ion-button
+        expand="block"
+        class="btn-cotizar"
+        [disabled]="items.length === 0"
+        (click)="abrirModalCotizacion()"
+      >
+        Continuar cotización
+      </ion-button>
+      <button class="btn-pdf" [disabled]="items.length === 0" (click)="generarPDF()">
+        <img src="../../assets/pdf.png" alt="PDF" style="width:24px;height:24px;vertical-align:middle;margin-right:6px;" />
+        Generar PDF
+      </button>
+    </div>
 
     <div class="modal-cotizacion" *ngIf="mostrarModalCotizacion">
       <div class="modal-cotizacion-content">
