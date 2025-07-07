@@ -73,7 +73,6 @@ npm install -g @ionic/cli
 - O desde la terminal:
   ```bash
   code .
-  ```
 
 ### 7. Iniciar el servidor de desarrollo
 
@@ -87,6 +86,12 @@ npm start
 Esto abrirá la aplicación en tu navegador, normalmente en `http://localhost:8100`.
 
 ---
+## importante para ejecutar los PDF 
+Instalar : 
+
+ npm install --save-dev @types/jspdf 
+
+ npm install jspdf
 
 ## Scripts disponibles
 
