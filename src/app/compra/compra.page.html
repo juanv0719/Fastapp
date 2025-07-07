@@ -2,7 +2,8 @@
   <div class="statusbar-bg"></div>
 
   <!-- Contenedor de contenido centrado -->
-  <div class="content-center">
+
+  <div *ngIf="items.length === 0" class="content-center">
     <div class="carro-card">
       <img src="../../assets/carritoVacio.png" alt="Carrito vacío" class="carro-img" />
       <div class="carro-textos">
@@ -12,13 +13,32 @@
     </div>
   </div>
 
+  <div *ngIf="items.length > 0" class="carro-lista">
+    <div *ngFor="let item of items" class="carro-item">
+      <div class="carro-item-img">
+        <img [src]="item.producto.imagen" [alt]="item.producto.titulo" />
+      </div>
+      <div class="carro-item-info">
+        <div class="carro-item-titulo">{{ item.producto.titulo }}</div>
+        <div class="carro-item-cantidad">
+          <button class="cantidad-btn" (click)="restar(item)" [disabled]="item.cantidad<=1">-</button>
+          <span class="cantidad-num">{{ item.cantidad }}</span>
+          <button class="cantidad-btn" (click)="sumar(item)" [disabled]="item.cantidad>=99">+</button>
+        </div>
+        <div class="carro-item-precio">S/. {{ (item.producto.precio * item.cantidad) | number:'1.2-2' }}</div>
+      </div>
+      <button class="carro-item-eliminar" (click)="eliminar(item)"><ion-icon name="close-outline"></ion-icon></button>
+    </div>
+  </div>
+
   <!-- Footer fijo al fondo -->
   <div class="footer">
     <div class="total-row">
       <span class="total-label">Total:</span>
+      <span class="total-monto">S/. {{ total | number:'1.2-2' }}</span>
       <ion-icon name="chevron-up-outline" class="icono-up"></ion-icon>
     </div>
-    <ion-button expand="block" class="btn-cotizar">
+    <ion-button expand="block" class="btn-cotizar" [disabled]="items.length === 0">
       Continuar cotización
     </ion-button>
   </div>

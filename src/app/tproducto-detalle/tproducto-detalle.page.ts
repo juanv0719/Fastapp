@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+
 import { ProductosService } from '../services/productos.service'; // importa el servicio
+import { CarritoService } from '../services/carrito.service';
 
 @Component({
   selector: 'app-tproducto-detalle',
@@ -16,12 +18,18 @@ export class TproductoDetallePage implements OnInit {
   producto: any;
   cantidad: number = 1;
 
+
   constructor(
     private route: ActivatedRoute,
     private productosService: ProductosService, // inyecta el servicio
+    private carritoService: CarritoService,
     private router: Router
   ) {}
+
   irACompra() {
+    if (this.producto) {
+      this.carritoService.addItem(this.producto, this.cantidad);
+    }
     this.router.navigate(['/compra']);
   }
 
