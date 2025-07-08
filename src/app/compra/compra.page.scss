@@ -106,7 +106,8 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding: 16px 0 120px 0;
+    padding: 16px 0 700px 0;
+    background: #fff;
   }
 
   .carro-item {
@@ -218,8 +219,10 @@
     text-align: right;
   }
   position: relative;
-  background: #fff;
-  height: 100%;
+  background: #fff !important;
+  min-height: 100vh;
+  height: auto !important;
+  padding-bottom: 120px;
   padding-top: 25px; // espacio para la status bar
 
   .statusbar-bg {
@@ -238,6 +241,7 @@
     align-items: center;
     height: calc(100% - 130px); 
     padding: 16px;
+    background: #fff;
   }
 
   .carro-card {
